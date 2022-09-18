@@ -1,3 +1,4 @@
+{% load static %}
 /*
 @File: Ezio Template Styles
 
@@ -544,7 +545,7 @@ Header Area Style
           box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
   background-color: #ffffff;
   width: 150px;
-  left: 0;
+  right: 0;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
   visibility: hidden;
@@ -565,7 +566,7 @@ Header Area Style
   border-bottom: 8px solid #ffffff;
   border-left: 8px solid transparent;
   top: -8px;
-  left: 20px;
+  right: 20px;
 }
 
 .top-header .header-right-content .flag-area .flag-item-top .flag-item-bottom .flag-item {
@@ -973,6 +974,10 @@ Banner Area Style
   background-image: url(../../assets/img/banner/banner-bg-3.jpg);
 }
 
+.banner-area.banner-area-two {
+  overflow: hidden;
+}
+
 .banner-area.banner-area-two .background-video {
   position: absolute;
   bottom: 0;
@@ -1017,6 +1022,10 @@ Banner Area Style
   background-image: -webkit-gradient(linear, left top, right top, from(#ffffff), to(transparent));
   background-image: linear-gradient(to right, #ffffff, transparent);
   z-index: -1;
+}
+
+.banner-area .col-lg-3 {
+  position: relative;
 }
 
 .banner-content {
@@ -1626,7 +1635,7 @@ Pricing Area Style
 Shipment Area Style
 ======================================================*/
 .shipment-area {
-  background-image: url(../../assets/img/shipment-bg.jpg);
+  background-image: url("{% static 'img/shipment-bg.jpg' %}");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -2207,6 +2216,11 @@ Copy Right Area Style
 
 .copy-right-area p a {
   color: #0383ff;
+}
+
+.copy-right-area p i {
+  position: relative;
+  top: 1px;
 }
 
 /*
@@ -3360,6 +3374,10 @@ User Area CSS
   margin: 0;
 }
 
+.user-area-style .text-right {
+  text-align: right;
+}
+
 /*
 Product Area Style
 ======================================================*/
@@ -3979,8 +3997,6 @@ product-view-one
 Cart Area Style
 ======================================================*/
 .cart-area .cart-controller {
-  max-width: 810px;
-  margin: auto;
   -webkit-box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
           box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
   background-color: #ffffff;
@@ -4000,7 +4016,8 @@ Cart Area Style
   border: none;
   border-bottom: 1px solid #dedede;
   color: #000024;
-  padding-top: 0;
+  padding-top: 15px;
+  padding-bottom: 15px;
   font-size: 16px;
   font-weight: 600;
 }
@@ -4010,6 +4027,8 @@ Cart Area Style
   border: none;
   border-bottom: 1px solid #dedede;
   white-space: nowrap;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .cart-area .cart-table table tbody tr td:first-child {
@@ -4230,6 +4249,14 @@ Cart Area Style
   display: block;
 }
 
+.cart-area .text-right {
+  text-align: right;
+}
+
+label {
+  margin-bottom: 12px;
+}
+
 /* 
 Checkout Area Style
 =====================================================*/
@@ -4247,7 +4274,7 @@ Checkout Area Style
 }
 
 .checkout-area .billing-details .form-group {
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 .checkout-area .billing-details .form-group label {
@@ -4857,7 +4884,7 @@ Shop Details Area Style
 }
 
 .product-details-area .products-details-tab .tab_content .tabs_item .products-details-tab-content .product-review-form .review-form form .form-group {
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 .product-details-area .products-details-tab .tab_content .tabs_item .products-details-tab-content .product-review-form .review-form form .form-group label {
@@ -5203,6 +5230,10 @@ Blog Details Area Style
   float: right;
 }
 
+.sidebar-widget.categories ul li span {
+  float: right;
+}
+
 .sidebar-widget.categories ul li::before {
   content: "";
   position: absolute;
@@ -5487,7 +5518,7 @@ Main Contact Area Style
 
 #msgSubmit {
   margin-top: 20px;
-  text-align: center;
+  text-align: left;
 }
 
 .text-success {
@@ -6036,16 +6067,16 @@ Video wave Style*/
 }
 
 .video-btn-2 i {
-  width: 50px;
-  height: 50px;
-  line-height: 40px;
+  width: 80px;
+  height: 80px;
+  line-height: 70px;
   text-align: center;
   border-radius: 50%;
   display: block;
   background: #ffffff;
   color: #0383ff;
   border: 5px solid #0383ff;
-  font-size: 30px;
+  font-size: 50px;
 }
 
 @-webkit-keyframes videoTwo {
@@ -6232,5 +6263,16 @@ Tabs Area Style*/
 
 .tab .tabs_item:first-child {
   display: block;
+}
+
+.header-right-content a i
+{
+    display: inline-block;
+   
+    color: #ffffff;
+    font-size: 20px;
+    position: relative;
+    padding-left: 10px;
+
 }
 /*# sourceMappingURL=style.css.map */

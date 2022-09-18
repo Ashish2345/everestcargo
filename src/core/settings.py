@@ -1,9 +1,19 @@
 import os
 import yaml
+from django.contrib.messages import constants as messages
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 credentials = yaml.safe_load(open(os.path.join(os.path.dirname(BASE_DIR), 'credentials.yaml')))
+
+MESSAGE_TAGS = {
+    messages.DEBUG: 'alert-info',
+    messages.INFO: 'alert-info',
+    messages.SUCCESS: 'alert-success',
+    messages.WARNING: 'alert-warning',
+    messages.ERROR: 'alert-danger',
+}
+
 
 SECRET_KEY = credentials['secret_key']
 
@@ -20,7 +30,17 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     
     #Apps
-    'frontend_cargo.apps.FrontendCargoConfig'
+    'frontend_cargo.apps.FrontendCargoConfig',
+    'backend_cargo.apps.BackendCargoConfig',
+
+    #3rd Party Apps
+    'crispy_forms', 
+
+    #all_auth
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+ 
 ]
 
 MIDDLEWARE = [
@@ -83,6 +103,15 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+ACCOUNT_FORMS = {
+    'login': 'backend_cargo.forms.UserLoginForm',
+    # 'signup': 'pages.forms.UserRegistrationForm',
+    # 'change_password': 'pages.forms.PasswordChangeForm',
+    # 'set_password': 'pages.forms.PasswordSetForm',
+    # 'reset_password': 'pages.forms.PasswordResetForm',
+    # 'reset_password_from_key': 'pages.forms.PasswordResetKeyForm'
+}
+
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'Asia/Kathmandu'
@@ -93,6 +122,7 @@ USE_L10N = True
 
 USE_TZ = False
 
+VALID_IMAGE_FORMAT = ['jpg', 'png', 'jpeg', 'heic', 'gif']
 STATIC_URL = '/django-static/'
 STATICFILES_DIRS = (os.path.join(os.path.dirname(BASE_DIR), "static"), )
 STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'assets/')

@@ -8,6 +8,10 @@
 
         <!-- CSS SECTION --> 
         {% include "css.html" %}
+        {% block css %}
+        
+        
+        {% endblock css %}
         <!-- CSS END SECTION --> 
 
 
@@ -25,16 +29,20 @@
         {% include "header.html" %}
         {% block content %}
 
-        
-        
-        
+
+
+
         {% endblock content %}
 
+        {% include "footer.html" %}
 
 
+
+
+
+        {% include "js.html" %}
         {% block js %}
         
-        {% include "js.html" %}
         
         {% endblock js %}
 

@@ -1,7 +1,7 @@
 (function($) {
 	'use strict';
 	// Mean Menu JS
-	jQuery('.mean-menu').meanmenu({ 
+	$('.mean-menu').meanmenu({ 
 		meanScreenWidth: "991"
 	});
 
@@ -209,7 +209,7 @@
 
 	// Click Event JS
 	$('.go-top').on('click', function() {
-		$("html, body").animate({ scrollTop: "0" },  1800);
+		$("html, body").animate({ scrollTop: "0" },  100);
 	});
 
 	// FAQ Accordion JS
@@ -226,7 +226,7 @@
 
 	// Count Time JS
 	function makeTimer() {
-		var endTime = new Date("november  30, 2020 17:00:00 PDT");			
+		var endTime = new Date("november  30, 2021 17:00:00 PDT");			
 		var endTime = (Date.parse(endTime)) / 1000;
 		var now = new Date();
 		var now = (Date.parse(now) / 1000);

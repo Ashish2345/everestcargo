@@ -430,7 +430,7 @@ Header Area Style
 					box-shadow: $box-shadow;
 					background-color: $white-color;
 					width: 150px;
-					left: 0;
+					right: 0;
 					transition: all 0.3s ease-in-out;  
 					visibility: hidden;
 					opacity: 0;
@@ -448,7 +448,7 @@ Header Area Style
 						border-bottom: 8px solid $white-color;
 						border-left: 8px solid transparent;
 						top: -8px;
-						left: 20px;
+						right: 20px;
 					}
 					.flag-item {
 						margin-bottom: 15px;
@@ -815,6 +815,7 @@ Banner Area Style
 		background-image: url(../../assets/img/banner/banner-bg-3.jpg);
 	}
 	&.banner-area-two {
+		overflow: hidden;
 		.background-video {
 			position: absolute;
 			bottom: 0;
@@ -855,6 +856,10 @@ Banner Area Style
 			z-index: -1;
 		}
 	}
+	.col-lg-3 {
+		position: relative;
+	}
+
 }
 .banner-content {
 	overflow: hidden;
@@ -1928,6 +1933,10 @@ Copy Right Area Style
 		a {
 			color: $main-color;
 		}
+		i {
+			position: relative;
+			top: 1px;
+		}
 	}
 }
 
@@ -2510,9 +2519,8 @@ FAQ Area Style
 		}
 	}
 	.faq-img {
-		background-image: url(../img/faq-img.jpg);
 		background-position: center center;
-		background-size: cover;
+		background-size: contain;
 		background-repeat: no-repeat;
 		height: 100%;
 	}
@@ -2891,6 +2899,9 @@ User Area CSS
 			float: right;
 			margin: 0;
 		}
+	}
+	.text-right {
+		text-align: right;
 	}
 }
 
@@ -3416,8 +3427,6 @@ Cart Area Style
 ======================================================*/
 .cart-area {
 	.cart-controller {
-		max-width: 810px;
-		margin: auto;
 		box-shadow: $box-shadow;
 		background-color: $white-color;
 		padding: 30px;
@@ -3435,7 +3444,8 @@ Cart Area Style
 						border: none;
 						border-bottom: 1px solid #dedede;
 						color: $heading-color;
-						padding-top: 0;
+						padding-top: 15px;
+						padding-bottom: 15px;
 						font-size: 16px;
 						font-weight: 600;
 					}
@@ -3448,6 +3458,8 @@ Cart Area Style
 						border: none;
 						border-bottom: 1px solid #dedede;
 						white-space: nowrap;
+						padding-top: 20px;
+    					padding-bottom: 20px;
 						&:first-child {
 							text-align: left;
 							padding-left: 0;
@@ -3625,6 +3637,12 @@ Cart Area Style
 			display: block;
 		}
 	}
+	.text-right {
+		text-align: right;
+	}
+}
+label {
+	margin-bottom: 12px;
 }
 
 /* 
@@ -3641,7 +3659,7 @@ Checkout Area Style
 			font-size: 22px;
 		}
 		.form-group {
-			margin-bottom: 20px;
+			margin-bottom: 30px;
 			label {
 				display: block;
 				color: $body-color;
@@ -4156,7 +4174,7 @@ Shop Details Area Style
 							margin-top: 30px;
 							form {
 								.form-group {
-									margin-bottom: 20px;
+									margin-bottom: 30px;
 									label {
 										color: #444444;
 									}
@@ -4461,6 +4479,9 @@ Blog Details Area Style
 						float: right;
 					}
 				}
+				span {
+					float: right;
+				}
 				&::before {
 					content: "";
 					position: absolute;
@@ -4708,7 +4729,7 @@ Main Contact Area Style
 }
 #msgSubmit {
 	margin-top: 20px;
-	text-align: center;
+	text-align: left;
 }
 .text-success {
     color: #28a745;
@@ -4801,7 +4822,6 @@ Main Contact Area Style
 		}
 	}
 }
-
 .blog-column-one-area {
 	.single-blog-post {
 		margin-left: 0;
@@ -5144,16 +5164,16 @@ Video wave Style*/
 		}
 	}
 	i {
-		width: 50px;
-		height: 50px;
-		line-height: 40px;
+		width: 80px;
+		height: 80px;
+		line-height: 70px;
 		text-align: center;
 		border-radius: 50%;
 		display: block;
 		background: $white-color;
 		color: $main-color;
 		border: 5px solid $main-color;
-		font-size: 30px;
+		font-size: 50px;
 	}
 }
 @keyframes videoTwo {

@@ -556,6 +556,10 @@
   .blog-left-sidebar-area .sidebar-widget.search {
     margin-top: 0 !important;
   }
+  .top-header .header-right-content .flag-area {
+    position: relative;
+    z-index: 9999;
+  }
 }
 
 /* Min width 576px to Max width 767px */
@@ -1078,6 +1082,14 @@
   }
 }
 
+/*
+Continuer Custom Width Area Style*/
+@media only screen and (min-width: 1300px) {
+  .container, .container-lg, .container-md, .container-sm, .container-xl {
+    max-width: 1320px;
+  }
+}
+
 /* Only Mobil Menu Max width 991px */
 @media only screen and (max-width: 991px) {
   .navbar-area {
@@ -1131,7 +1143,7 @@
     display: block;
   }
   .others-option-for-responsive .dot-menu {
-    top: -38px;
+    top: -39px;
   }
   .others-option {
     display: none;

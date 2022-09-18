@@ -5,8 +5,413 @@ Everest International Cargo - The [Best] Cargo in Nepal
 
 {% endblock title %}
 
+{% block css %}
+
+
+
+
+{% endblock css %}
+
 {% block content %}
 
-nice
+    {% include "banner.html" %}
+    <section class="about-us-area pt-100 pb-50">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="about-img about-img-three">
+                        <img src="{% static 'img/cargo_img/post1-copyright-890x664.jpg' %}" alt="Image">
+
+                        <div class="experience">
+                            <div class="">
+                                <h2>20 Years Of Experience</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="about-content">
+                        <span class="top-title">About Us</span>
+                        <h2>Modern And Trusted Logistics Company</h2>
+                        <p>Everest International Exports (EIE) is one of the leading shipping companies in Nepal. As a part of DHL Express, FedEx, Ups, Aramex, DPD, and EMS the EIE  has been servicing worldwide for over 16 years. Our export service specializes in customizing a full-service logistics provider for you.</p>
+                        
+                        <ul>
+                            <li>
+                                <i class="bx bx-check"></i>
+                                24/7 Business Support
+                            </li>
+                            <li>
+                                <i class="bx bx-check"></i>
+                                Immediate pickup and warehousing 
+                            </li>
+                            <li>
+                                <i class="bx bx-check"></i>
+                                Flexible delivery solutions and rates 
+                            </li>
+                            <li>
+                                <i class="bx bx-check"></i>
+                                Real-time Package tracking
+                            </li>
+                        </ul>
+
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Start Services Area -->
+		<section class="services-area bg-color pt-100 pb-70">
+			<div class="container">
+				<div class="section-title">
+					<span>Our Services</span> 
+					<h2>We Are Trusted For Our Services</h2>
+					<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugit porro, aliquid reprehenderit iusto inventore sint beatae ipsum impedit in sit numquam illum distinctio sequi quisquam et hic tempore</p>
+				</div>
+
+				<div class="row">
+					<div class="col-lg-4 col-sm-6">
+						<div class="single-services-box">
+							<i class="flaticon-fast-delivery-1"></i>
+							<h3> AIR FREIGHT </h3>
+							<p>Air freight has been our core business for 16 years and we have right away access to numerous airlines to destinations across the world.</p>
+
+							<a href="services-details.html" class="read-more">
+								Read More
+							</a>
+						</div>
+					</div>
+
+					<div class="col-lg-4 col-sm-6">
+						<div class="single-services-box">
+							<i class="flaticon-boat"></i>
+							<h3>LAND AND SEA FREIGHT</h3>
+							<p>A great alternative to air freight, our land and sea freight experts work with a range of land and ocean shipping carriers.</p>
+
+							<a href="services-details.html" class="read-more">
+								Read More
+							</a>
+						</div>
+					</div>
+
+					<div class="col-lg-4 col-sm-6 offset-sm-3 offset-lg-0">
+						<div class="single-services-box">
+							<i class="flaticon-airplane"></i>
+							<h3>WAREHOUSING</h3>
+							<p>If there is a need to manage a seasonal inventory upsurge, Everest International Everest can help for long-term term and short-term warehousing.</p>
+
+							<a href="services-details.html" class="read-more">
+								Read More
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- End Services Area -->
+
+    <section class="shipment-area ptb-100 jarallax" data-jarallax='{"speed": 0.3}'>
+        <div class="container">
+            <div class="shipment-content">
+                <span class="top-title">Shipment</span>
+                <h2>Are You A Shipper? Please Knock Us On The Below Button</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam iste facere, unde nesciunt ratione amet voluptatibus aut, iure magnam accusantium consequatur voluptatum nam ipsum in soluta consectetur temporibus nobis itaque!</p>
+
+                <div class="shipment-btn">
+                    <a href="#" class="default-btn">
+                        <span>Make A Shipment</span>
+                    </a>
+                    <a href="contact-us.html" class="default-btn active">
+                        <span>Contact Us</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Start FAQ Area -->
+		<section class="faq-area ptb-100">
+			<div class="container">
+				<div class="section-title">
+					<span class="pumpkin-color">FAQ</span>
+					<h2>Get Every Single Answer</h2>
+					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi quo aliquam dolores nemo, ipsum excepturi provident similique at id ratione aperiam velit dignissimos illum earum perferendis, dolore</p>
+				</div>
+
+				<div class="row">
+					<div class="col-lg-6">
+						<div class="faq-accordion">
+							<ul class="accordion">
+								<li class="accordion-item">
+									<a class="accordion-title active" href="javascript:void(0)">
+										<span>1</span>
+										What Payment Methods Are Available?
+									</a>
+									<p class="accordion-content show">Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta, est odio nobis voluptas placeat quaerat totam. Quam quo eius aut, omnis exercitationem nesciunt unde debitis ea laborum deserunt dolorum tempore. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe id animi et voluptate, dolorum</p>
+								</li>
+								<li class="accordion-item">
+									<a class="accordion-title" href="javascript:void(0)">
+										<span>2</span>
+										Do I have to commit to a contract?
+									</a>
+									<p class="accordion-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta, est odio nobis voluptas placeat quaerat totam. Quam quo eius aut, omnis exercitationem nesciunt unde debitis ea laborum deserunt dolorum tempore. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe id animi et voluptate, dolorum</p>
+								</li>
+								<li class="accordion-item">
+									<a class="accordion-title" href="javascript:void(0)">
+										<span>3</span>
+										Let’s Find A Office Near You?
+									</a>
+									<p class="accordion-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta, est odio nobis voluptas placeat quaerat totam. Quam quo eius aut, omnis exercitationem nesciunt unde debitis ea laborum deserunt dolorum tempore. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe id animi et voluptate, dolorum</p>
+								</li>
+								<li class="accordion-item">
+									<a class="accordion-title" href="javascript:void(0)">
+										<span>4</span>
+										Which Plan Is Right For Me?
+									</a>
+									<p class="accordion-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta, est odio nobis voluptas placeat quaerat totam. Quam quo eius aut, omnis exercitationem nesciunt unde debitis ea laborum deserunt dolorum tempore. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe id animi et voluptate, dolorum</p>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-lg-6">
+						<div class="faq-img" style="background-image: url({% static 'img/cargo_img/faq.jpg' %});">
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- End FAQ Area -->
+
+    <!-- Start Testimonials Area Two -->
+		<section class="testimonials-area-two pt-100 pb-70">
+			<div class="container">
+				<div class="section-title">
+					<span>Our Testimonials</span>
+					<h2>Let's Know About All Of Our Client Says</h2>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.</p>
+				</div>
+
+				<div class="testimonials-slider-two owl-theme owl-carousel">
+					<div class="single-testimonials-two">
+						<img src="" alt="Image">
+
+						<h3>Denial Peer</h3>
+						<span>Marketer</span>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+
+						<ul>
+							<li>
+								<i class="bx bxs-star"></i>
+							</li>
+							<li>
+								<i class="bx bxs-star"></i>
+							</li>
+							<li>
+								<i class="bx bxs-star"></i>
+							</li>
+							<li>
+								<i class="bx bxs-star"></i>
+							</li>
+							<li>
+								<i class="bx bxs-star"></i>
+							</li>
+						</ul>
+
+						<div class="quotes">
+							<i class="flaticon-left-quotes-sign"></i>
+						</div>
+					</div>
+
+					<div class="single-testimonials-two">
+						<img src="" alt="Image">
+
+						<h3>Anna Dew</h3>
+						<span>Developer</span>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+
+						<ul>
+							<li>
+								<i class="bx bxs-star"></i>
+							</li>
+							<li>
+								<i class="bx bxs-star"></i>
+							</li>
+							<li>
+								<i class="bx bxs-star"></i>
+							</li>
+							<li>
+								<i class="bx bxs-star"></i>
+							</li>
+							<li>
+								<i class="bx bxs-star"></i>
+							</li>
+						</ul>
+						
+						<div class="quotes">
+							<i class="flaticon-left-quotes-sign"></i>
+						</div>
+					</div>
+
+					<div class="single-testimonials-two">
+						<img src="" alt="Image">
+
+						<h3>Jecty Smith</h3>
+						<span>UI UX Designer</span>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+
+						<ul>
+							<li>
+								<i class="bx bxs-star"></i>
+							</li>
+							<li>
+								<i class="bx bxs-star"></i>
+							</li>
+							<li>
+								<i class="bx bxs-star"></i>
+							</li>
+							<li>
+								<i class="bx bxs-star"></i>
+							</li>
+							<li>
+								<i class="bx bxs-star"></i>
+							</li>
+						</ul>
+						
+						<div class="quotes">
+							<i class="flaticon-left-quotes-sign"></i>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- End Testimonials Area Two -->
+
+		<!-- Start Blog Area -->
+        <section class="blog-area ptb-100">
+			<div class="container">
+				<div class="section-title">
+					<span>Our Blog</span>
+					<h2>Make A Relation With Our Blog Article And Meet With Our Blogs</h2>
+					<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugit porro, aliquid reprehenderit iusto inventore sint beatae ipsum impedit in sit numquam illum distinctio sequi quisquam et hic tempore</p>
+				</div>
+
+				<div class="row">
+					<div class="blog-slider owl-carousel owl-theme">
+						<div class="single-blog-post">
+							<div class="post-image">
+								<a href="#">
+									<img src="assets/img/blog/blog-1.jpg" alt="image">
+								</a>
+							</div>
+
+							<div class="blog-content">
+								<div class="date">
+									<i class="bx bx-calendar"></i> 
+									<span>06 October 2019</span>
+								</div>
+
+								<h3>
+									<a href="#">New Cargo Shipment Is Open On The Global Market</a>
+								</h3>
+
+								<p>Luis ipsum suspendisse ultrices. Risus commodo viverra maecenas accumsan lacus vel facilisis ultrices Risus ipsum.</p>
+
+								<a href="blog-details.html" class="default-btn">
+									<span>Read More</span>
+								</a>
+							</div>
+						</div>
+
+						<div class="single-blog-post">
+							<div class="post-image">
+								<a href="#">
+									<img src="assets/img/blog/blog-2.jpg" alt="image">
+								</a>
+							</div>
+
+							<div class="blog-content">
+								<div class="date">
+									<i class="bx bx-calendar"></i> 
+									<span>07 October 2019</span>
+								</div>
+
+								<h3>
+									<a href="#">Transportation Charged Has Removed Form This Months</a>
+								</h3>
+
+								<p>Luis ipsum suspendisse ultrices. Risus commodo viverra maecenas accumsan lacus vel facilisis ultrices Risus ipsum.</p>
+
+								<a href="blog-details.html" class="default-btn">
+									<span>Read More</span>
+								</a>
+							</div>
+						</div>
+
+						<div class="single-blog-post">
+							<div class="post-image">
+								<a href="#">
+									<img src="assets/img/blog/blog-3.jpg" alt="image">
+								</a>
+							</div>
+
+							<div class="blog-content">
+								<div class="date">
+									<i class="bx bx-calendar"></i>
+									<span>08 October 2019</span>
+								</div>
+
+								<h3>
+									<a href="#">Marketing Policy Added Into The Logistic Service</a>
+								</h3>
+
+								<p>Luis ipsum suspendisse ultrices. Risus commodo viverra maecenas accumsan lacus vel facilisis ultrices Risus ipsum.</p>
+
+								<a href="blog-details.html" class="default-btn">
+									<span>Read More</span>
+								</a>
+							</div>
+						</div>
+
+						<div class="single-blog-post">
+							<div class="post-image">
+								<a href="#">
+									<img src="assets/img/blog/blog-4.jpg" alt="image">
+								</a>
+							</div>
+
+							<div class="blog-content">
+								<div class="date">
+									<i class="bx bx-calendar"></i> 
+									<span>09 October 2019</span>
+								</div>
+
+								<h3>
+									<a href="#">Transportation Charged Has Removed Form This Months</a>
+								</h3>
+
+								<p>Luis ipsum suspendisse ultrices. risus commodo viverra maecenas accumsan lacus vel facilisis ultrices risus ipsum.</p>
+
+								<a href="blog-details.html" class="default-btn">
+									<span>Read More</span>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- End Blog Area -->
+
+
 
 {% endblock content %}
+{% block js %}
+
+
+
+{% endblock js %}
+
+
+

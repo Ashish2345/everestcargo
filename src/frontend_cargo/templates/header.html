@@ -1,4 +1,6 @@
 {% load static %}
+
+
 <!-- Start Header Area -->
 <header class="header-area">
     <!-- Start Top Header -->
@@ -22,6 +24,19 @@
                     </ul>
                 </div>
 
+                <div class="col-lg-4 col-md-2">
+                    <div class="header-right-content">
+                       
+                        <a href=""><i class='bx bxl-facebook'></i></a>
+                       
+                    <a href=""><i class='bx bxl-instagram' ></i></a>
+                       
+                    <a href=""> <i class='bx bxl-twitter' ></i></a>
+                        
+                    </div>
+                </div>
+                
+
                
             </div>
         </div>
@@ -35,7 +50,7 @@
                 <div class="mobile-menu">
                     <div class="logo">
                         <a href="index.html">
-                            <img src="{% static 'img/logo.png' %}" alt="logo">
+                            <img src="{% static 'img/logo.png' %}" alt="logo" style="height: 120px; width:250px; margin-top: -20px;">
                         </a>
                     </div>
                 </div>
@@ -46,51 +61,105 @@
             <div class="container">
                 <nav class="navbar navbar-expand-md navbar-light">
                     <a class="navbar-brand" href="index.html">
-                        <img src="{% static 'img/logo.png' %}" alt="logo">
+                        <img src="{% static 'img/logo.png' %}" alt="logo" style="height: 120px; width:250px; margin-top: -20px;">
                     </a>
 
                     <div class="collapse navbar-collapse mean-menu">
                         <ul class="navbar-nav m-auto">
                             <li class="nav-item">
-                                <a href="#" class="nav-link active">
-                                    Home
+                                <a href="{% url 'front_dashboard:frontdashboard' %}" class="nav-link active">
+                                    Overview
                                     
                                 </a>
     
                               
                             </li>
-    
+
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    Pages
-                                    
-                                </a>
-    
-                               
-                            </li>
-    
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <a href="" class="nav-link">
                                     Services
-                                    
+                                    <i class="bx bx-chevron-down"></i>
                                 </a>
     
-                                
-                            </li>
-    
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    Blog
+                                <ul class="dropdown-menu">
+                                    <li class="nav-item">
+                                        <a href="{% url 'front_dashboard:user_services' "air-freight" %}" class="nav-link">Air Freight</a>
+                                    </li>
                                     
+                                    <li class="nav-item">
+                                        <a href="{% url 'front_dashboard:user_services' "landsea-freight" %}" class="nav-link">Land and Sea Freight</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{% url 'front_dashboard:user_services' "importexport-service" %}" class="nav-link">Import/Export Service</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{% url 'front_dashboard:user_services' "courier-service" %}" class="nav-link">Courier Service</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{% url 'front_dashboard:user_services' "packingwarehouse-service" %}" class="nav-link">Packing/Warehousing Service</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link">
+                                           Other Service
+                                            <i class="bx bx-chevron-right"></i>
+                                        </a>
+
+                                        <ul class="dropdown-menu">
+                                            <li class="nav-item">
+                                                <a href="{% url 'front_dashboard:user_services' "urgent-service" %}" class="nav-link">Urgent Service</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a href="{% url 'front_dashboard:user_services' "transport-service" %}" class="nav-link">Transport Service</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a href="{% url 'front_dashboard:user_services' "domestic-service" %}" class="nav-link">Domestic Service</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a href="{% url 'front_dashboard:user_services' "Custom-clearance" %}" class="nav-link">Custom Clearance</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a href="{% url 'front_dashboard:user_services' "package-tracking" %}" class="nav-link">Package Tracking</a>
+                                            </li>
+                                           
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="company.html" class="nav-link">Tracking</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{% url 'front_dashboard:about_us' %}" class="nav-link">
+                                    About Us
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="" class="nav-link">
+                                    Other Pages
+                                    <i class="bx bx-chevron-down"></i>
                                 </a>
     
+                                <ul class="dropdown-menu">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{% url 'front_dashboard:blogs' %}">Blogs</a>
+                                    </li>
+                                   
+                                    <li class="nav-item">
+                                        <a href="services-style-three.html" class="nav-link">Shop</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{% url 'front_dashboard:teams' %}" class="nav-link">Team</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{% url 'front_dashboard:location' %}" class="nav-link">Global Location</a>
+                                    </li>
+                                </ul>
                             </li>
-    
+
+
                             <li class="nav-item">
-                                <a href="company.html" class="nav-link">Company</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="contact-us.html" class="nav-link">Contact Us</a>
+                                <a href="{% url 'front_dashboard:contact_us' %}" class="nav-link">Contact Us</a>
                             </li>
                         </ul>
                         

@@ -688,6 +688,10 @@ $box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
             }
         }
     }
+    .top-header .header-right-content .flag-area  {
+        position: relative;
+        z-index: 9999;
+    }
 }
 
 /* Min width 576px to Max width 767px */
@@ -1320,6 +1324,14 @@ $box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
     }
 }
 
+/*
+Continuer Custom Width Area Style*/
+@media only screen and (min-width: 1300px) {
+    .container, .container-lg, .container-md, .container-sm, .container-xl {
+        max-width: 1320px;
+    }
+}
+
 /* Only Mobil Menu Max width 991px */
 @media only screen and (max-width: 991px) {
 	.navbar-area {
@@ -1379,7 +1391,7 @@ $box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
 	.others-option-for-responsive {
 		display: block;
 		.dot-menu {
-			top: -38px;
+			top: -39px;
 		}
 	}
 	.others-option {
