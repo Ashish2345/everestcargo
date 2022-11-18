@@ -651,9 +651,7 @@ class TrackingStatsChangeView(View):
         tracking_id = request.POST.get("track_id")
         status = request.POST.get("status")
         stats = TrackingStatus.objects.filter(name=status).first()
-        print(stats)
         a = TrackingModel.objects.filter(id=tracking_id).update(status=stats)
-        print(a)
         return JsonResponse({"success":True})
 
 
