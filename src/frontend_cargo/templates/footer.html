@@ -5,29 +5,29 @@
             <div class="col-lg-3 col-md-6">
                 <div class="single-footer-widget">
                     <a href="index.html" class="logo">
-                        <img src="{% static 'img/logo.png' %}" alt="Image">
+                        <img src="{{siteoption.logo_image.url}}" alt="Image">
                     </a>
 
-                    <p>Lorem ipsum dolor sit amet, consec tetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua consec.</p>
+                    <p>{{siteoption.description}}</p>
 
                     <ul class="social-icon">
                         <li>
-                            <a href="#">
+                            <a href="{{systemoption.fb_url}}">
                                 <i class="bx bxl-facebook"></i>
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="{{systemoption.insta_url}}">
                                 <i class="bx bxl-instagram"></i>
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="{{systemoption.linkedin_url}}">
                                 <i class="bx bxl-linkedin-square"></i>
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="{{systemoption.twitter_url}}">
                                 <i class="bx bxl-twitter"></i>
                             </a>
                         </li>
@@ -96,17 +96,15 @@
                     <ul class="address">
                         <li class="location">
                             <i class="bx bxs-location-plus"></i>
-                            9170 Millbrook Rd, Newark, IL 60541 
+                            {{systemoption.address}}
                         </li>
                         <li>
                             <i class="bx bxs-envelope"></i>
-                            <a href="mailto:hello@ezio.com">hello@ezio.com</a>
-                            <a href="mailto:info@ezio.com">info@ezio.com</a>
+                            <a href="mailto:{{systemoption.contact_email}}">{{systemoption.contact_email}}</a>
                         </li>
                         <li>
                             <i class="bx bxs-phone-call"></i>
-                            <a href="tel:+1-(123)-456-7890">+1 (123) 456 7890</a>
-                            <a href="tel:+1-(514)-312-6678">+1 (514) 312-6678</a>
+                            <a href="tel:+1-(123)-456-7890">{{systemoption.phone_number}}</a>
                         </li>
                     </ul>
                 </div>

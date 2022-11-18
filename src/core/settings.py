@@ -35,6 +35,7 @@ INSTALLED_APPS = [
 
     #3rd Party Apps
     'crispy_forms', 
+    'django_extensions',
 
     #all_auth
     'allauth',
@@ -66,6 +67,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'backend_cargo.context_processors.get_siteoption',
             ],
         },
     },
@@ -121,6 +123,8 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = False
+
+CRISPY_TEMPLATE_PACK = "bootstrap4"
 
 VALID_IMAGE_FORMAT = ['jpg', 'png', 'jpeg', 'heic', 'gif']
 STATIC_URL = '/django-static/'

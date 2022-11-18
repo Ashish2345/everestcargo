@@ -1,0 +1,198 @@
+{% extends 'partials/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+
+{% block extra_css %}
+<style>
+    .bold_text
+    {
+        font-weight: 600;
+    }
+</style>
+{% endblock %}
+{% block contents %}
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+
+                <div class="pt-3">
+                    <div class="row justify-content-center">
+                        <div class="col-xl-8">
+                            <div>
+                                <div class="text-center">
+                                    <div class="mb-4">
+                                        <a href="javascript: void(0);" class="badge bg-light font-size-12">
+                                            <i class="bx bx-purchase-tag-alt align-middle text-muted me-1"></i> User Details
+                                        </a>
+
+                                    </div>
+                                    
+                                </div>
+
+                                <hr>
+                                <div class="text-center">
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <div>
+                                                <p class="text-muted mb-2"></p>
+                                                <h5 class="font-size-15"></h5>
+                                            </div>
+                                        </div>
+                                                                        
+                                        <div class="col-sm-4">
+                                            <div class="mt-4 mt-sm-0">
+                                                <p class="text-muted mb-2">Categories</p>
+                                                <h5 class="font-size-15">User</h5>
+                                            </div>
+                                        </div>
+                                       
+                                        <div class="col-sm-4">
+                                            <div class="mt-4 mt-sm-0">
+                                                <p class="text-muted mb-2"></p>
+                                                <h5 class="font-size-15"></h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr>
+
+                                <div class="my-5">
+                                    <img src="{{team_lists.user_image.url}}" alt="" class="img-thumbnail mx-auto d-block">
+                                </div>
+
+                                <hr>
+
+                                <div class="mt-4">
+                                    <div class="text-muted font-size-14">
+                                        <span></span>
+
+         
+                                    
+
+                                        <div class="mt-4">
+                                            <h5 class="mb-3 bold_text" >Full Name: </h5>
+
+                                            <div>
+                                                <div class="row">
+                                                    <div class="col-lg-8 col-sm-6">
+                                                        {{team_lists.full_name}}
+                                                    </div>
+                                                   
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="mt-4">
+                                            <h5 class="mb-3 bold_text" >Designation: </h5>
+
+                                            <div>
+                                                <div class="row">
+                                                    <div class="col-lg-8 col-sm-6">
+                                                        {{team_lists.designation}}
+                                                    </div>
+                                                   
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="mt-4">
+                                            <h5 class="mb-3 bold_text">Social Links: </h5>
+
+                                            <div>
+                                                <div class="row">
+                                                    <div class="col-lg-12 col-sm-6">
+                                                        <div>
+                                                            <ul class="ps-4">
+                                                                {% if team_lists.fb_url %}
+                                                                <li class="py-1 bold_text">Facebook: {{team_lists.fb_url}}</li>
+                                                                {% endif %}
+                                                                {% if team_lists.insta_url %}
+                                                                <li class="py-1 bold_text">Instagram: {{team_lists.insta_url}}</li>
+                                                                {% endif %}
+                                                                {% if team_lists.twitter_url %}
+                                                                <li class="py-1 bold_text">Twiter: {{team_lists.twitter_url}}</li>
+                                                                {% endif %}
+                                                                {% if team_lists.linkedin_url %}
+                                                                <li class="py-1 bold_text">Linkedin: {{ team_lists.linkedin_url}}</li>
+                                                                {% endif %}
+                                                                {% if team_lists.tiktok_url %}
+                                                                <li class="py-1 bold_text">Tiktok: {{team_lists.tiktok_url}}</li>
+                                                                {% endif %}
+
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                   
+                                                </div>
+                                            </div>
+                                        </div>
+                                       
+                                       
+
+                                    </div>
+
+                                    </div>
+
+                                    <hr>
+                                    <button type="button" class="btn btn-primary waves-effect waves-light" data-bs-toggle="modal" data-bs-target=".UpdateUserModal">Update</button>
+
+
+                                    
+                                </div>
+                                
+
+                                <div class="modal fade UpdateUserModal" tabindex="-1" style="display: none;" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title">Update User Details</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form method="POST" enctype='multipart/form-data'>
+                                                    <div style="width:100%;" class="d-flex w-100 mb-3 mt-3">
+                                                        <div>
+                                                            <label for="user_img">User Images :</label>
+                                                                <input
+                                                                    type="file"
+                                                                    data-default-file="{{team_lists.user_image.url}}"
+                                                                    class="dropify"
+                                                                    name="user_img"
+                                                                    data-height="180"
+                                                                    id="fileName" 
+                                                                    accept="image/png, image/gif, image/jpeg, image/jpg, image/heic "
+                                                                    />
+                                                        </div>
+                                                    </div>
+                                                    {% crispy form %}
+                                                
+                                               <button type="submit" class="btn btn-primary waves-effect waves-light">Update</button>
+                                               
+                                            </form>
+                                            </div>
+                                        </div><!-- /.modal-content -->
+                                    </div><!-- /.modal-dialog -->
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </dib>
+        </div>
+    </div>
+</div>
+
+{% endblock contents %}
+
+{% block extra_javascript %}
+<script>
+    $('.dropify').dropify();
+
+</script>
+
+{% endblock  %}

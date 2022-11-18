@@ -1,0 +1,340 @@
+{% extends 'partials/base.html' %}
+{% load static %}
+
+{% block contents %}
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="pt-3">
+                                            <div class="row justify-content-center">
+                                                <div class="col-xl-8">
+                                                    <div>
+                                                        <div class="text-center">
+                                                            <div class="mb-4">
+                                                                <a href="javascript: void(0);" class="badge bg-light font-size-12">
+                                                                    <i class="bx bx-purchase-tag-alt align-middle text-muted me-1"></i> Blogs
+                                                                </a>
+                                                            </div>
+                                                            <h4>{{blog.title}}</h4>
+                                                            <p class="text-muted mb-4"><i class="mdi mdi-calendar me-1"></i> {{blog.updated_date}}</p>
+                                                        </div>
+
+                                                        <hr>
+                                                        <div class="text-center">
+                                                            <div class="row">
+                                                                <div class="col-sm-4">
+                                                                    <div>
+                                                                        <p class="text-muted mb-2">Categories</p>
+                                                                        <h5 class="font-size-15">Blog</h5>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-sm-4">
+                                                                    <div class="mt-4 mt-sm-0">
+                                                                        <p class="text-muted mb-2"></p>
+                                                                        <h5 class="font-size-15"></h5>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-sm-4">
+                                                                    <div class="mt-4 mt-sm-0">
+                                                                        <p class="text-muted mb-2">Post by</p>
+                                                                        <h5 class="font-size-15">{{blog.created_by}}</h5>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <hr>
+
+                                                        <div class="my-5">
+                                                            {% if blog.blog_image.url %}
+                                                            <img src="{{blog.blog_image.url}}" alt="" class="img-thumbnail mx-auto d-block">
+                                                            {% endif %}
+                                                        </div>
+                                                        <blockquote class="p-4 border-light border rounded mb-4">
+                                                            <div class="d-flex">
+                                                                <div class="me-3">
+                                                                    <i class="bx bxs-quote-alt-left text-dark font-size-24"></i>
+                                                                </div>
+                                                                <div>
+                                                                    <p class="mb-0"> {{blog.highlighted_text}}</p>
+                                                                </div>
+                                                            </div>
+                                                            
+                                                        </blockquote>
+
+                                                        <hr>
+
+                                                        <div class="mt-4">
+                                                            <div class="text-muted font-size-14">
+                                                                {% if blog.description|length > 195 and blog.description|length < 665 %}
+
+                                                                <p>{{blog.description|slice:":195"}}</p>
+                                                            
+                                                                <p class="mb-4">{{blog.description|slice:"196:700"}}</p>
+                                                                
+                                                                <div class="row">
+                                                                
+                                                                    {% if blog.sub_image1 %}
+                                                                    <div class="col-lg-6 col-sm-6">
+                                                                        <div style="width:100%;" class="d-flex w-100 mb-3 mt-3">
+                                                                            <div>
+                                                                                <label for="banner">Sub Image 1:</label>
+                                                                                
+                                                                                    <input
+                                                                                        type="file"
+                                                                                       
+                                                                                        data-default-file="{{blog.sub_image1.url}}"
+                                                                                       
+                                                                                        class="dropify"
+                                                                                        name="logo"
+                                                                                        data-height="180"
+                                                                                        id="fileName" 
+                                                                                        accept="image/png, image/gif, image/jpeg, image/jpg, image/heic "
+                                                                                        />
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    {% endif %}
+                                                                    {% if blog.sub_image2 %}
+                                                                    <div class="col-lg-6 col-sm-6">
+                                                                        <div style="width:100%;" class="d-flex w-100 mb-3 mt-3">
+                                                                            <div>
+                                                                                <label for="banner">Sub Image 2:</label>
+                                                                                    <input
+                                                                                        type="file"
+                                                                                        
+                                                                                        data-default-file="{{blog.sub_image2.url}}"
+                                                                                        
+                                                                                        name="favicon"
+                                                                                        data-height="180"
+                                                                                        id="fileName" 
+                                                                                        accept="image/png, image/gif, image/jpeg, image/jpg, image/heic "
+                                                                                        />
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    {% endif %}
+                                                                   
+
+
+                                                            
+                                                            
+                                                                </div>
+                                                                {% elif blog.description|length < 195 %}
+                                                                <p>{{blog.description|slice:":195"}}</p>
+
+                                                                <div class="row">
+                                                                
+                                                                    {% if blog.sub_image1 %}
+                                                                    <div class="col-lg-6 col-sm-6">
+                                                                        <div style="width:100%;" class="d-flex w-100 mb-3 mt-3">
+                                                                            <div>
+                                                                                <label for="banner">Sub Image 1:</label>
+                                                                                    <input
+                                                                                        type="file"
+                                                                                       
+                                                                                        data-default-file="{{blog.sub_image1.url}}"
+                                                                                       
+                                                                                        class="dropify"
+                                                                                        name="logo"
+                                                                                        data-height="180"
+                                                                                        id="fileName" 
+                                                                                        accept="image/png, image/gif, image/jpeg, image/jpg, image/heic "
+                                                                                        />
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    {% endif %}
+                                                                    {% if blog.sub_image2 %}
+                                                                    <div class="col-lg-6 col-sm-6">
+                                                                        <div style="width:100%;" class="d-flex w-100 mb-3 mt-3">
+                                                                            <div>
+                                                                                <label for="banner">Sub Image 2:</label>
+                                                                                    <input
+                                                                                        type="file"
+                                                                                        
+                                                                                        data-default-file="{{blog.sub_image2.url}}"
+                                                                                        
+                                                                                        class="dropify"
+                                                                                        name="favicon"
+                                                                                        data-height="180"
+                                                                                        id="fileName" 
+                                                                                        accept="image/png, image/gif, image/jpeg, image/jpg, image/heic "
+                                                                                        />
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    {% endif %}
+                                                                   
+
+
+                                                            
+                                                            
+                                                                </div>
+
+                                                                {% else %}
+                                                                
+                                                                
+                                                                <p>{{blog.description|slice:":195"}}</p>
+                                                            
+                                                                <p class="mb-4">{{blog.description|slice:"196:700"}}</p>
+
+                                                                <div class="row">
+                                                                
+                                                                    {% if blog.sub_image1 %}
+                                                                    <div class="col-lg-6 col-sm-6">
+                                                                        <div style="width:100%;" class="d-flex w-100 mb-3 mt-3">
+                                                                            <div>
+                                                                                <label for="banner">Sub Image 1:</label>
+                                                                                    <input
+                                                                                        type="file"
+                                                                                        
+                                                                                        data-default-file="{{blog.sub_image1.url}}"
+                                                                                      
+                                                                                        class="dropify"
+                                                                                        name="logo"
+                                                                                        data-height="180"
+                                                                                        id="fileName" 
+                                                                                        accept="image/png, image/gif, image/jpeg, image/jpg, image/heic "
+                                                                                        />
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    {% endif %}
+                                                                    {% if blog.sub_image2 %}
+                                                                    <div class="col-lg-6 col-sm-6">
+                                                                        <div style="width:100%;" class="d-flex w-100 mb-3 mt-3">
+                                                                            <div>
+                                                                                <label for="banner">Sub Image 2:</label>
+                                                                                    <input
+                                                                                        type="file"
+                                                                                       
+                                                                                        data-default-file="{{blog.sub_image2.url}}"
+                                                                                       
+                                                                                        class="dropify"
+                                                                                        name="favicon"
+                                                                                        data-height="180"
+                                                                                        id="fileName" 
+                                                                                        accept="image/png, image/gif, image/jpeg, image/jpg, image/heic "
+                                                                                        />
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    {% endif %}
+                                                                   
+
+
+                                                            
+                                                            
+                                                                </div>
+                                                                
+
+                                                                <p>{{blog.description|slice:"665:"}}</p>
+                                                            
+                                                                {% endif %}
+                                                               
+
+                                                            </div>
+
+                                                            <hr>
+
+                                                            <div class="mt-5">
+                                                                <h5 class="font-size-15"><i class="bx bx-message-dots text-muted align-middle me-1"></i> Comments :</h5>
+                                                                
+                                                                <div>
+                                                                    {% for comment in comments_related %}
+                                                                    <div class="d-flex py-3">
+                                                                        <div class="flex-shrink-0 me-3">
+                                                                            <div class="avatar-xs">
+                                                                                <div class="avatar-title rounded-circle bg-light text-primary">
+                                                                                    <i class="bx bxs-user"></i>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        
+                                                                        <div class="flex-grow-1">
+                                                                            <h5 class="font-size-14 mb-1">{{comment.creater_name}} <small class="text-muted float-end">{{comment.created_date}}</small>
+                                                                                
+                                                                            </h5>
+                                                                            <small class="text-muteds">{{comment.creater_email}}</small>
+                                                                            
+
+                                                                            <h5 class="font-size-8 mt-4">{{comment.title}}</h5>
+                                                                            <p class="text-muted">{{comment.comment}}</p>
+                                                                            
+                                                                           
+                                                                        </div>
+                                                                        
+                                                                    </div>
+                                                                    {% empty %}
+                                                                        <h5 class="font-size-14 mb-1">No comments available</h5>
+ 
+                                                                    {% endfor %}
+                                                                   
+                        
+                                                                </div>
+                                                            </div>
+                
+                                                            <div class="mt-4">
+                                                                <h5 class="font-size-16 mb-3">Leave a Message</h5>
+                
+                                                                <form method="post">
+                                                                    {% csrf_token %}
+                                                                    <div class="row">
+                                                                        
+                                                                        <div class="col-md-6">
+                                                                            <div class="mb-3">
+                                                                                <label for="commentname-input" class="form-label">Name</label>
+                                                                                <input type="text" name="your_name" class="form-control" id="commentname-input" placeholder="Enter name">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-6">
+                                                                            <div class="mb-3">
+                                                                                <label for="commentemail-input" class="form-label">Email</label>
+                                                                                <input type="email" name="your_email" class="form-control" id="commentemail-input" placeholder="Enter email">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-12">
+                                                                        <div class="mb-3">
+                                                                            <label for="commentname-input" class="form-label">Title</label>
+                                                                            <input type="text" name="your_title" class="form-control" id="commentname-input" placeholder="Enter name">
+                                                                        </div>
+                                                                    </div>
+                
+                                                                    <div class="mb-3">
+                                                                        <label for="commentmessage-input" class="form-label">Message</label>
+                                                                        <textarea class="form-control" name="your_message" id="commentmessage-input" placeholder="Your message..." rows="3"></textarea>
+                                                                    </div>
+                
+                                                                    <div class="text-end">
+                                                                        <button type="submit" class="btn btn-success w-sm">Submit</button>
+                                                                    </div>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- end card body -->
+                                </div>
+                                <!-- end card -->
+                            </div>
+                            <!-- end col -->
+                        </div>
+                        <!-- end row -->
+{% endblock %}
+
+{% block extra_javascript %}
+
+
+<script>
+    $('.dropify').dropify();
+
+</script>
+
+
+{% endblock extra_javascript %}

@@ -96,3 +96,41 @@ class GlobalLocationView(View):
             "page_name":"Locations"
         }
         return render(request, self.template_name, self.args)
+
+
+class TrackingView(View):
+    def dispatch(self, request, *args, **kwargs):
+        self.template_name = "tracking.html"
+        self.args = {}
+        return super().dispatch(request, *args, **kwargs)
+
+    def get(self, request, *args, **kwargs):
+        self.args = {
+            "page_name":"Tracking"
+        }
+        return render(request, self.template_name, self.args)
+
+
+class TrackingDetailsView(View):
+    def dispatch(self, request, *args, **kwargs):
+        self.template_name = "tracking_detail.html"
+        self.args = {}
+        return super().dispatch(request, *args, **kwargs)
+
+    def get(self, request, *args, **kwargs):
+        self.args = {
+            "page_name":"Tracking Details"
+        }
+        return render(request, self.template_name, self.args)
+
+class RequestQuotesView(View):
+    def dispatch(self, request, *args, **kwargs):
+        self.template_name = "quote.html"
+        self.args = {}
+        return super().dispatch(request, *args, **kwargs)
+
+    def get(self, request, *args, **kwargs):
+        self.args = {
+            "page_name":"Request a quote"
+        }
+        return render(request, self.template_name, self.args)

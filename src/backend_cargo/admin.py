@@ -3,9 +3,11 @@ from django.contrib import admin
 from .models import *
 
 class SiteSettingAdmin(admin.ModelAdmin):
-    list_display = ["site_name","contact_email","mode"]
+    list_display = ["site_name","mode"]
 
 admin.site.register(SiteSetting, SiteSettingAdmin)
+
+admin.site.register(SystemSettings)
 
 admin.site.register(Profile)
 
@@ -34,6 +36,7 @@ class CommentModelAdmin(admin.ModelAdmin):
     list_display = ["blog","title","creater_name","creater_email"]
 
 admin.site.register(CommentModel, CommentModelAdmin)
+admin.site.register(Teams)
 
 admin.site.register(FAQModel)
 
@@ -51,3 +54,15 @@ class ServiceModelAdmin(admin.ModelAdmin):
     list_display = ["tag_name","service_name"]
 
 admin.site.register(ServiceModel, ServiceModelAdmin)
+admin.site.register(GetQuote)
+admin.site.register(CourierModel)
+admin.site.register(CargoModelPackage)
+admin.site.register(DeliveryMode)
+admin.site.register(ShipperModel)
+admin.site.register(ReceiverModel)
+admin.site.register(PackageDetailsModel)
+admin.site.register(PackageModel)
+admin.site.register(TrackingStatus)
+admin.site.register(TrackingModel)
+
+

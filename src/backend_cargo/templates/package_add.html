@@ -1,0 +1,219 @@
+{% extends 'partials/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+
+{% block extra_css %}
+<style>
+    .bold_text
+    {
+        font-weight: 600;
+    }
+</style>
+{% endblock %}
+{% block contents %}
+<form class="repeater" enctype="multipart/form-data" method="post">
+{% csrf_token %}
+
+    <div>
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+
+                    <div class="pt-3">
+                        <div class="row justify-content-center">
+                            <div class="col-xl-11">
+                                <div>
+                                    <div class="text-center">
+                                        <div class="mb-4">
+                                            <a href="javascript: void(0);" class="badge bg-light font-size-12">
+                                                <i class="bx bx-purchase-tag-alt align-middle text-muted me-1"></i> Add Package Details
+                                            </a>
+
+                                        </div>
+                                        
+                                    </div>
+
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-lg-6 col-sm-6">
+                                            <div>
+                                                <h5 for="banner">Sender from Nepal Details:</h5>
+
+                                            {% crispy shipper_modla %}
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-6 col-sm-6">
+                                            <div>
+                                                <h5 for="banner">Reveiver Details:</h5>
+
+                                            {% crispy receiver_modal %}
+                                            </div>
+                                        </div>
+
+                                       
+                                    </div>
+
+                                    
+
+                                    
+                                
+
+                                
+
+                                
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </dib>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title mb-4">Package Details</h4>
+                        <div data-repeater-list="group-a">
+                            <div data-repeater-item class="row">
+                                <div  class="mb-3 col-lg-2">
+                                    <label for="name">Pacakge Name:</label>
+                                    <input type="text" id="name" name="package_name" class="form-control" placeholder="Package Name" autocomplete="off"/>
+                                </div>
+
+                                <div  class="mb-3 col-lg-2">
+                                    <label for="email">Total Weight</label>
+                                    <input type="number" id="weight" name="package_weight"  class="form-control" placeholder="Add Weight" autocomplete="off"/>
+                                </div>
+
+                                <div  class="mb-3 col-lg-2">
+                                    <label for="subject">Total Quantity</label>
+                                    <input type="number" id="quantity" name="package_quantity" class="form-control" placeholder="Add Quantity" autocomplete="off"/>
+                                </div>
+                                <div  class="mb-3 col-lg-2">
+                                    <label for="subject">Rate</label>
+                                    <input type="number" id="rate" class="form-control" name="package_rate" placeholder="Add Rate" autocomplete="off"/>
+                                </div>
+                                <div  class="mb-3 col-lg-2">
+                                    <label for="subject">Total</label>
+                                    <input type="number" id="total" class="form-control" placeholder="Total" name="package_total" autocomplete="off"/>
+                                </div>
+
+                                <div class="col-lg-2 align-self-center">
+                                    <div class="d-grid">
+                                        <input data-repeater-delete type="button" id="total_delete" class="btn btn-primary" value="Delete"/>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            
+                        </div>
+                        <div class="col-lg-12">
+                         
+                            <input data-repeater-create type="button" id="check_totoal"  class="btn btn-success mt-3 mt-lg-0" value="Add"/>
+                            
+                            
+                            <h5 style=" float: right; ">Grand Total: <span id="total_val">0</span></h5>
+                            
+                        </div>
+                </div>
+               
+            </div>
+        </div>
+        
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+
+                    <div class="pt-3">
+                        <div class="row justify-content-center">
+                            <div class="col-xl-11">
+                                <div>
+                                   
+                                   
+                                        <div class="col-lg-12 col-sm-12">
+                                            <div>
+                                                <h5 for="banner">Additional Details:</h5>
+
+                                            {% crispy package_form %}
+                                            </div>
+                                        </div>
+
+
+                                       
+                                 
+
+                                    
+
+                                    
+                                
+
+                                
+
+                                
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </dib>
+            </div>
+        </div>
+    </div>
+   
+
+    
+    <button type="submit" class="btn btn-primary" style=" width: 150px;  margin: auto; margin-bottom: 15px; ">Submit</button>
+</div>
+</form>
+
+{% endblock contents %}
+
+{% block extra_javascript %}
+
+<script src="{% static 'libs/jquery.repeater/jquery.repeater.min.js' %}"></script>
+
+<script src="{% static 'js2/pages/form-repeater.int.js' %}"></script>
+<script>
+    {% comment %} todoCheck.addEventListener("click", (e) => { {% endcomment %}
+    $('.dropify').dropify();
+    let total_arr = []
+    const add_btn = document.getElementById("check_totoal")
+    add_btn.addEventListener("click", (e) => { 
+        const total = document.querySelectorAll("#total")
+        total.forEach((totoalCheck) => {
+            let b = parseInt(totoalCheck.value)
+            console.log(b)
+            if (isNaN(b) == true)
+            {
+                b = 0
+            }
+            total_arr.push(b)
+        })
+        const sum = total_arr.reduce((partialSum, a) => partialSum + a, 0);
+        const sum2 = sum.toString();
+        const total_val = document.getElementById("total_val");
+        if (isNaN(sum) == true)
+        {
+            document.getElementById("total_val").innerHTML = 44
+        }
+        else
+        {
+            document.getElementById("total_val").innerHTML = sum2
+        }
+        
+        
+    })
+
+</script>
+
+{% endblock  %}

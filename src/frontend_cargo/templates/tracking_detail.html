@@ -1,0 +1,338 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Services
+
+{% endblock title %}
+
+{% block css %}
+
+<style>
+    .verti-timeline {
+        border-left: 3px dashed var(--bs-gray-300);
+        margin: 0 10px;
+    }
+    .list-unstyled {
+        padding-left: 0;
+        list-style: none;
+    }
+    .verti-timeline .event-list {
+    position: relative;
+    padding: 0 0 40px 30px;
+}
+.verti-timeline .event-list .event-timeline-dot {
+    position: absolute;
+    left: -9px;
+    top: 0;
+    z-index: 9;
+    font-size: 16px;
+}
+.verti-timeline .event-list {
+    position: relative;
+    padding: 0 0 40px 30px;
+}
+
+.hori-timeline .events .event-list .event-down-icon {
+    content: "";
+    position: absolute;
+    width: 100%;
+    top: 16px;
+    left: 0;
+    right: 0;
+    border-bottom: 3px dashed var(--bs-gray-300);
+}
+
+
+.hori-timeline .events .event-list {
+    text-align: center;
+    display: block;
+}
+.hori-timeline .events .event-list .event-down-icon {
+    position: relative;
+}
+.hori-timeline .events .event-list .event-down-icon .down-arrow-icon {
+    position: relative;
+    background-color: var(--bs-custom-white);
+    padding: 4px;
+}
+.px-3 {
+    padding-right: 1rem!important;
+    padding-left: 1rem!important;
+}
+
+</style>
+
+
+
+
+{% endblock css %}
+
+{% block content %}
+
+<div class="row" style="margin-top:180px;padding: 20px;">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-body" style=" margin-bottom: 24px; box-shadow: 0 0.75rem 1.5rem rgb(18 38 63 / 3%);">
+                <h4 class="card-title mb-4">Package Timeline</h4>
+                
+                <div class="hori-timeline">
+                    <div class="owl-carousel owl-theme navs-carousel events owl-loaded owl-drag" id="timeline-carousel">
+                        
+
+                        
+
+                        
+
+                        
+
+                        
+
+                        
+                    <div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 0.25s ease 0s; width: 1517px;"><div class="owl-item active" style="width: 252.75px;"><div class="item event-list">
+                            <div>
+                                <div class="event-date">
+                                    <div class="text-primary mb-1">12 September</div>
+                                    <h5 class="mb-4">First event</h5>
+                                </div>
+                                <div class="event-down-icon">
+                                    <i class="bx bx-down-arrow-circle h1 text-primary down-arrow-icon"></i>
+                                </div>
+
+                                <div class="mt-3 px-3">
+                                    <p class="text-muted">It will be as simple as occidental in fact it will be Cambridge</p>
+                                </div>
+                            </div>
+                        </div></div>
+                       
+                       
+                        <div class="owl-item" style="width: 252.75px;"><div class="item event-list">
+                            <div>
+                                <div class="event-date">
+                                    <div class="text-primary mb-1">19 November</div>
+                                    <h5 class="mb-4">Sixth event</h5>
+                                </div>
+                                <div class="event-down-icon">
+                                    <i class="bx bx-down-arrow-circle h1 text-primary down-arrow-icon"></i>
+                                </div>
+
+                                <div class="mt-3 px-3">
+                                    <p class="text-muted">It will be as simple as occidental in fact it will be Cambridge</p>
+                                </div>
+                            </div>
+                        </div></div><div class="owl-item" style="width: 252.75px;"><div class="item event-list">
+                            <div>
+                                <div class="event-date">
+                                    <div class="text-primary mb-1">21 December</div>
+                                    <h5 class="mb-4">Seventh event</h5>
+                                </div>
+                                <div class="event-down-icon">
+                                    <i class="bx bx-down-arrow-circle h1 text-primary down-arrow-icon"></i>
+                                </div>
+
+                                <div class="mt-3 px-3">
+                                    <p class="text-muted">To an English person, it will seem like simplified English existence.</p>
+                                </div>
+                            </div>
+                        </div></div></div></div>
+                        <div class="owl-nav">
+                            <button type="button" role="presentation" class="owl-prev disabled">
+                                <i class="mdi mdi-chevron-left"></i></button><button type="button" role="presentation" class="owl-next"><i class="mdi mdi-chevron-right"></i></button></div><div class="owl-dots disabled"></div></div>
+                </div>
+            </div>
+        </div>
+        <!-- end card -->
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="mb-5">
+                    <p> <span style="font-weight: bold" class="text-primary">Tracking No: </span>1666340814</p>
+                    <p> <span style="font-weight: bold" class="text-primary">Origin Service Area: </span>Nepal</p>
+                    <p> <span style="font-weight: bold" class="text-primary">Destination Service Area: </span>UNITED STATES OF AMERICA</p>
+                </div>
+                <hr>
+                <div class="">
+
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th>Event</th>
+                            <th>Location</th>
+                            <th>Date/Time</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                                                                                                    <tr>
+                                    <td>Shipment received by Shipping Partner UPS with  tracking number 1Z3Y975F0495108730</td>
+                                    <td></td>
+                                    <td> </td>
+                                </tr>
+                                                                                                                                        <tr>
+                                    <td><span style="font-weight:bold">2022-10-25</span></td>
+                                    <td><span style="font-weight:bold"></span></td>
+                                    <td><span style="font-weight:bold"></span></td>
+                                </tr>
+                                                                                                                                        <tr>
+                                    <td>Shipment Departure</td>
+                                    <td>KTM - KATHMANDU-NPL</td>
+                                    <td>2022-10-25 05:31 AM</td>
+                                </tr>
+                                                                                                                                        <tr>
+                                    <td><span style="font-weight:bold">2022-10-24</span></td>
+                                    <td><span style="font-weight:bold"></span></td>
+                                    <td><span style="font-weight:bold"></span></td>
+                                </tr>
+                                                                                                                                        <tr>
+                                    <td>Shipment Processed</td>
+                                    <td>KTM - KATHMANDU-NPL</td>
+                                    <td>2022-10-24 02:29 AM</td>
+                                </tr>
+                                                                                                                                        <tr>
+                                    <td><span style="font-weight:bold">2022-10-22</span></td>
+                                    <td><span style="font-weight:bold"></span></td>
+                                    <td><span style="font-weight:bold"></span></td>
+                                </tr>
+                                                                                                                                        <tr>
+                                    <td>Shipment Processed</td>
+                                    <td>KTM - KATHMANDU-NPL</td>
+                                    <td>2022-10-22 12:23 AM</td>
+                                </tr>
+                                                                                                                                        <tr>
+                                    <td><span style="font-weight:bold">2022-10-21</span></td>
+                                    <td><span style="font-weight:bold"></span></td>
+                                    <td><span style="font-weight:bold"></span></td>
+                                </tr>
+                                                                                                                                        <tr>
+                                    <td>Information Received</td>
+                                    <td>KTM - KATHMANDU-NPL</td>
+                                    <td>2022-10-21 07:56 PM</td>
+                                </tr>
+                                                                                            <!-- and so on... -->
+                        </tbody>
+                    </table>
+
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% comment %} 
+<div class="container" style="margin-top:180px">
+    <div class="">
+                                                <div class="card" style="    border: none;">
+                <div>
+                    <div>
+                        <p> <span style="font-weight: bold" class="text-primary">Tracking No: </span>1666340814</p>
+                        <p> <span style="font-weight: bold" class="text-primary">Origin Service Area: </span>Nepal</p>
+                        <p> <span style="font-weight: bold" class="text-primary">Destination Service Area: </span>UNITED STATES OF AMERICA</p>
+                    </div>
+
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th>Event</th>
+                            <th>Location</th>
+                            <th>Date/Time</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                                                                                                    <tr>
+                                    <td>Shipment received by Shipping Partner UPS with  tracking number 1Z3Y975F0495108730</td>
+                                    <td></td>
+                                    <td> </td>
+                                </tr>
+                                                                                                                                        <tr>
+                                    <td><span style="font-weight:bold">2022-10-25</span></td>
+                                    <td><span style="font-weight:bold"></span></td>
+                                    <td><span style="font-weight:bold"></span></td>
+                                </tr>
+                                                                                                                                        <tr>
+                                    <td>Shipment Departure</td>
+                                    <td>KTM - KATHMANDU-NPL</td>
+                                    <td>2022-10-25 05:31 AM</td>
+                                </tr>
+                                                                                                                                        <tr>
+                                    <td><span style="font-weight:bold">2022-10-24</span></td>
+                                    <td><span style="font-weight:bold"></span></td>
+                                    <td><span style="font-weight:bold"></span></td>
+                                </tr>
+                                                                                                                                        <tr>
+                                    <td>Shipment Processed</td>
+                                    <td>KTM - KATHMANDU-NPL</td>
+                                    <td>2022-10-24 02:29 AM</td>
+                                </tr>
+                                                                                                                                        <tr>
+                                    <td><span style="font-weight:bold">2022-10-22</span></td>
+                                    <td><span style="font-weight:bold"></span></td>
+                                    <td><span style="font-weight:bold"></span></td>
+                                </tr>
+                                                                                                                                        <tr>
+                                    <td>Shipment Processed</td>
+                                    <td>KTM - KATHMANDU-NPL</td>
+                                    <td>2022-10-22 12:23 AM</td>
+                                </tr>
+                                                                                                                                        <tr>
+                                    <td><span style="font-weight:bold">2022-10-21</span></td>
+                                    <td><span style="font-weight:bold"></span></td>
+                                    <td><span style="font-weight:bold"></span></td>
+                                </tr>
+                                                                                                                                        <tr>
+                                    <td>Information Received</td>
+                                    <td>KTM - KATHMANDU-NPL</td>
+                                    <td>2022-10-21 07:56 PM</td>
+                                </tr>
+                                                                                            <!-- and so on... -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+                                <hr>
+                        
+
+
+    </div>
+</div> {% endcomment %}
+
+{% endblock content %}
+
+
+
+
+{% block js %}
+<script>
+
+
+    
+
+
+	$(".owl-carousel").owlCarousel({
+		items: 4,
+		loop  : false,
+		margin : 30,
+		nav    : true,
+		
+		smartSpeed :900,
+		navText:["<div class='nav-btn prev-slide'></div>","<div class='nav-btn next-slide'></div>"],
+			
+		
+	  });
+
+	
+</script>
+
+
+
+
+{% endblock js %}
+
+
+
+
+
+

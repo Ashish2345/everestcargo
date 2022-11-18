@@ -1,0 +1,161 @@
+{% extends 'partials/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+
+{% block extra_css %}
+<link href="{% static 'libs/dropzone/dist/min/dropzone.min.css' %}" rel="stylesheet" type="text/css" />
+
+<link href="{% static 'libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css' %}" rel="stylesheet" type="text/css" />
+<link href="{% static 'libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css' %}" rel="stylesheet" type="text/css" />
+
+<!-- Responsive datatable examples -->
+<link href="{% static 'libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css' %}" rel="stylesheet" type="text/css" />    
+<!-- Responsive datatable examples -->
+
+
+{% endblock %}
+{% block contents %}
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+
+                <div class="card-title" style=" display: flex; justify-content: space-between; ">
+                    <h4>Track Package</h4>
+
+                    
+                </div>
+                <p class="card-title-desc">Track your pack that you have created.
+                </p>
+
+               
+                <table id="datatable" class="table table-bordered dt-responsive  nowrap w-100">
+                    <thead>
+                    <tr>
+                        <th>Tracking Code</th>
+                        <th>Package</th>
+                        <th>Status</th>
+                        <th>Location</th>
+                        <th>Action</th>
+        
+                    </tr>
+                    </thead>
+
+
+                    <tbody>
+                        {% for tracking in tracking %}
+                    <tr>
+                        <td>
+                           {{tracking.tracking_code}}
+                        </td>
+                        <td>
+                            {{tracking.package}}</td>
+                        <td>
+                            <select class="form-control" id="change_tracking_Status" data-id="{{tracking.id}}" data-url="{% url 'backend_dashboard:tracking_change' %}">
+                            {% comment %} {{tracking.status}} {% endcomment %}
+                            {% for status in all_status %}
+                           
+                            <option value="{{status}}">{{status}}</option>
+                            
+
+                            {% endfor %}
+
+                            </select>
+                           
+                        </td>
+                        <td>
+                            {{tracking.location}}
+                        </td>
+                         <td>
+                            <ul class="list-unstyled hstack gap-1 mb-0">
+                                
+                                <li data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Edit">
+                                    <a href="{% url 'backend_dashboard:tracking_edit_admin' tracking.id %}" class="btn btn-sm btn-soft-info"><i class="mdi mdi-pencil-outline"></i></a>
+                                </li>
+                                <li data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Delete">
+                                    <a href="" data-bs-toggle="modal" data-bs-target=".UserDeleteModal{{tracking.id}}"  class="btn btn-sm btn-soft-danger"><i class="mdi mdi-delete-outline"></i></a>
+                                </li>
+
+                                <div class="modal fade UserDeleteModal{{tracking.id}}" tabindex="-1" aria-labelledby="jobDeleteLabel" aria-modal="true" role="dialog">
+                                    <div class="modal-dialog modal-dialog-centered modal-sm">
+                                        <div class="modal-content">
+                                            <div class="modal-body px-4 py-5 text-center">
+                                                <form method="POST" enctype='multipart/form-data' action="{% url 'backend_dashboard:tracking_delete_admin' tracking.id %}">
+                                                {% csrf_token %}
+                                                    <button type="button" class="btn-close position-absolute end-0 top-0 m-3" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                <div class="avatar-sm mb-4 mx-auto">
+                                                    <div class="avatar-title bg-primary text-primary bg-opacity-10 font-size-20 rounded-3">
+                                                        <i class="mdi mdi-trash-can-outline"></i>
+                                                    </div>
+                                                </div>
+                                                <p class="">Are you sure you want to permanently</p>
+                                                <p class="">delete the user.</p>
+                                                <div class="hstack gap-2 justify-content-center mb-0">
+                                                    <button type="submit" class="btn btn-danger">Delete Now</button>
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+     
+                            
+                    </tr>
+
+                    {% endfor %}
+
+                    
+                    
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div> <!-- end col -->
+</div>
+                
+
+{% endblock  %}
+
+
+{% block extra_javascript %}
+
+<script src="{% static 'libs/datatables.net/js/jquery.dataTables.min.js' %}"></script>
+<script src="{% static 'js2/pages/datatables.init.js' %}"></script> 
+<script src="{% static 'libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js' %}"></script>
+<!-- Buttons examples -->
+<script src="{% static 'libs/datatables.net-buttons/js/dataTables.buttons.min.js' %}"></script>
+<script src="{% static 'libs/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js' %}"></script>
+
+<script>
+    $('.dropify').dropify();
+
+
+
+    jQuery('#change_tracking_Status').change(function(){
+        console.log(jQuery(this).val())
+        jQuery.ajax({
+            
+            type:'post',
+                url:jQuery(this).attr('data-url'),
+                data:{
+                    'track_id':jQuery(this).attr('data-id'),
+                    'status':jQuery(this).val(),
+                    'csrfmiddlewaretoken':jQuery('meta[name="csrf-token"]').attr('content')
+                },
+            success:function(response){
+                jQuery('#tstat').val(response)
+                toastr.success('Task Status Successfully Changed!', 'Thankyou!');              
+            },
+            error:function(){
+                toastr.error('Error');
+            }
+       })
+    })
+
+</script>
+
+{% endblock  %}

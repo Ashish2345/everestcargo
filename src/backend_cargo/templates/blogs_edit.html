@@ -1,0 +1,88 @@
+{% extends 'partials/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block contents %}
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <form method="POST" enctype='multipart/form-data'>
+                    {% csrf_token %}
+                    
+                    <div style="width:100%;" class="mb-3 mt-2">
+                        <div>
+                            <label for="banner">Blog Image :</label>
+                                <input
+                                type="file"
+                                data-default-file="{{qs.blog_image.url}}"
+                                class="dropify"
+                                name="blog_image"
+                                data-height="180"
+                                id="fileName" 
+                                accept="image/png, image/gif, image/jpeg, image/jpg, image/heic "
+                                />
+                        </div>
+                    </div>
+                    {{ form.title|as_crispy_field }}
+
+                    {{ form.highlighted_text|as_crispy_field }}
+                    <div class="row">
+                        <div class="col-lg-6 col-sm-6">
+                            <div style="width:100%;" class="d-flex w-100 mb-3 mt-3">
+                                <div>
+                                    <label for="banner">Sub Image 1 :</label>
+                                        <input
+                                            type="file"
+                                            data-default-file="{{qs.sub_image1.url}}"
+                                            class="dropify"
+                                            name="sub_image1"
+                                            data-height="180"
+                                            id="fileName" 
+                                            accept="image/png, image/gif, image/jpeg, image/jpg, image/heic "
+                                            />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-sm-6">
+                            <div style="width:100%;" class="d-flex w-100 mb-3 mt-3">
+                                <div>
+                                    <label for="banner">Sub Image 2 :</label>
+                                        <input
+                                            type="file"
+                                            class="dropify"
+                                            data-default-file="{{qs.sub_image2.url}}"
+                                            name="sub_image2"
+                                            data-height="180"
+                                            id="fileName" 
+                                            accept="image/png, image/gif, image/jpeg, image/jpg, image/heic "
+                                            />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {{ form.description|as_crispy_field }}
+                <div style="float:right">
+                <button type="submit" class="btn btn-primary waves-effect waves-light mt-3">Update Blog</button>
+                <a class="btn btn-outline-danger waves-effect waves-light mt-3">Cancel</a>
+                </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
+
+{% block extra_javascript %}
+
+
+<script>
+    $('.dropify').dropify();
+
+</script>
+
+
+{% endblock extra_javascript %}

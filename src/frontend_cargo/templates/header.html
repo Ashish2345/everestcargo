@@ -11,15 +11,15 @@
                     <ul class="header-left-content">
                         <li>
                             <i class="bx bx-home"></i>
-                            Z-Street Kathmandu, Nepal
+                            {{systemoption.address}}
                         </li>
                         <li>
                             <i class="bx bx-phone-call"></i>
-                            <a href="tel:+1-(123)-456-7890">+977 (9823) 380132</a>
+                            <a href="tel:{{systemoption.phone_number}}">{{systemoption.phone_number}}</a>
                         </li>
                         <li>
                             <i class="bx bx-envelope"></i>
-                            <a href="mailto:hello@ezio.com">ashishrayamajhi227@gmail.com</a>
+                            <a href="mailto:{{systemoption.contact_email}}">{{systemoption.contact_email}}</a>
                         </li>
                     </ul>
                 </div>
@@ -27,11 +27,11 @@
                 <div class="col-lg-4 col-md-2">
                     <div class="header-right-content">
                        
-                        <a href=""><i class='bx bxl-facebook'></i></a>
+                        <a href="{{systemoption.fb_url}}"><i class='bx bxl-facebook'></i></a>
                        
-                    <a href=""><i class='bx bxl-instagram' ></i></a>
+                    <a href="{{systemoption.insta_url}}"><i class='bx bxl-instagram' ></i></a>
                        
-                    <a href=""> <i class='bx bxl-twitter' ></i></a>
+                    <a href="{{systemoption.twitter_url}}"> <i class='bx bxl-twitter' ></i></a>
                         
                     </div>
                 </div>
@@ -50,7 +50,7 @@
                 <div class="mobile-menu">
                     <div class="logo">
                         <a href="index.html">
-                            <img src="{% static 'img/logo.png' %}" alt="logo" style="height: 120px; width:250px; margin-top: -20px;">
+                            <img src="{{siteoption.logo_image.url}}" alt="logo" style="height: 120px; width:250px; margin-top: -20px;">
                         </a>
                     </div>
                 </div>
@@ -61,7 +61,7 @@
             <div class="container">
                 <nav class="navbar navbar-expand-md navbar-light">
                     <a class="navbar-brand" href="index.html">
-                        <img src="{% static 'img/logo.png' %}" alt="logo" style="height: 120px; width:250px; margin-top: -20px;">
+                        <img src="{{siteoption.logo_image.url}}" alt="logo" style="height: 120px; width:250px; margin-top: -20px;">
                     </a>
 
                     <div class="collapse navbar-collapse mean-menu">
@@ -115,7 +115,7 @@
                                                 <a href="{% url 'front_dashboard:user_services' "domestic-service" %}" class="nav-link">Domestic Service</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a href="{% url 'front_dashboard:user_services' "Custom-clearance" %}" class="nav-link">Custom Clearance</a>
+                                                <a href="{% url 'front_dashboard:user_services' "custom-clearance" %}" class="nav-link">Custom Clearance</a>
                                             </li>
                                             <li class="nav-item">
                                                 <a href="{% url 'front_dashboard:user_services' "package-tracking" %}" class="nav-link">Package Tracking</a>
@@ -127,7 +127,7 @@
                             </li>
 
                             <li class="nav-item">
-                                <a href="company.html" class="nav-link">Tracking</a>
+                                <a href="{% url 'front_dashboard:tracking_package' %}" class="nav-link">Tracking</a>
                             </li>
                             <li class="nav-item">
                                 <a href="{% url 'front_dashboard:about_us' %}" class="nav-link">
@@ -165,7 +165,7 @@
                         
                         <div class="others-option">
                             <div class="get-quote">
-                                <a href="pricing-style-two.html" class="default-btn">
+                                <a href="{% url 'front_dashboard:request_quotes' %}" class="default-btn">
                                     <span>Get A Quote</span>
                                 </a>
                             </div>

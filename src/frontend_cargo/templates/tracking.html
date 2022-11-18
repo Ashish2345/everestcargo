@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Tracking
+
+{% endblock title %}
+
+{% block css %}
+
+
+
+
+{% endblock css %}
+
+{% block content %}
+{% include "page_header_ban.html" %}
+<!-- Start Track Area -->
+<section class="track-area ptb-100 jarallax" data-jarallax='{"speed": 0.3}'>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="tab quote-list-tab">
+                    <ul class="tabs">
+                        <li>
+                            <a href="#">
+                                <i class="flaticon-truck"></i>
+                                Track & Trace
+                            </a>
+                        </li>
+                       
+                    </ul>
+
+                    <div class="tab_content">
+                       
+
+                        <div class="tabs_item">
+                            <form>
+                                <div class="row">
+                                   
+                                    </div>
+
+                                    <div class="col-12 mt-30">
+                                        <h3>Tracking Number</h3>
+                                    </div>
+
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <textarea class="form-control" placeholder="You can enter up to a maximum of 10 airway bill numbers for tracking."></textarea>
+                                        </div>
+                                    </div>
+                                
+
+                              
+                                   
+
+
+                                    <div class="col-12">
+                                        <button type="submit" class="default-btn">
+                                            Track Your Package
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Track Area -->
+
+
+{% endblock %}
