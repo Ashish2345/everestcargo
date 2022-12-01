@@ -1347,13 +1347,13 @@ Continuer Custom Width Area Style*/
 		.logo {
 			position: relative;
 			width: 60%;
-			z-index: 999;
+			z-index: 0;
 		}
 		.mobile-menu {
 			position: relative;
 			&.mean-container {
 				.mean-nav {
-					margin-top: 55px;
+					margin-top: 195px;
 					ul {
 						font-size: 15px;
 						li {

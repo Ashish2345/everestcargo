@@ -8,7 +8,17 @@
 
         <!-- CSS SECTION --> 
         {% include "css.html" %}
+        <style>
+            @media (max-width: 760px) {
+                .dot-menu
+                {
+                    display: none;
+                }
+              }
+            
+        </style>
         {% block css %}
+      
         
         
         {% endblock css %}

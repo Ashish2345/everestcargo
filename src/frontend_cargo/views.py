@@ -40,7 +40,10 @@ class ServicesView(View):
 
     def get(self, request, *args, **kwargs):
         name = kwargs.get("name")
-        service_details = ServiceModel.objects.filter(tag_name=name).latest()
+        try:
+            service_details = ServiceModel.objects.filter(tag_name=name).latest()
+        except:
+            service_details = []
         self.args = {
             "page_name":name,
             "service_details":service_details
