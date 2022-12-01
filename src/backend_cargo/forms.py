@@ -7,7 +7,7 @@ from django import forms
 
 from .models import (OverviewBannerModel, AboutUsModel, SiteSetting, SystemSettings, Teams,
                     BlogModel, TestimonialsModel, FAQModel, ServiceModel,ShipperModel,
-                    ReceiverModel,PackageModel, TrackingModel )
+                    ReceiverModel,ContactUsModel, PackageModel, TrackingModel )
 
 
 class UserLoginForm(LoginForm):
@@ -501,3 +501,11 @@ class TrackingModelForm(forms.ModelForm):
         class Meta:
             model = TrackingModel
             fields = ("tracking_code","package", "status","description","location")
+
+
+
+class ContactUsModelForm(forms.ModelForm):
+
+        class Meta:
+            model = ContactUsModel
+            fields = ("name","email", "phone","subject","message")

@@ -25,7 +25,7 @@ Services
             <div class="col-lg-8">
                 <div class="blog-details-content">
                     <div class="blog-details-img">
-                        <img src="assets/img/blog-details/blog-details-1.jpg" alt="Image">
+                        <img src="{{blog_details.blog_image.url}}" alt="Image">
                     </div>
 
                     <div class="blog-top-content">
@@ -34,7 +34,7 @@ Services
                                 <li> 
                                     <a href="#">
                                         <i class="bx bx-user-circle"></i>
-                                        Posted by: Carl Bradshaw
+                                        Posted by: {{blog_details.created_by}}
                                     </a>
                                 </li>
 
@@ -47,7 +47,7 @@ Services
 
                                 <li class="float">
                                     <i class="bx bx-calendar-alt"></i>
-                                    October 20, 2020
+                                    {{blog_details.created_date}}
                                 </li>
                             </ul>
                             

@@ -26,7 +26,7 @@ Everest International Cargo - The [Best] Cargo in Nepal
 							<div class="container">
 								<div class="row align-items-center justify-content-center text-center">
 									<div class="col-lg-6">
-										<a href="{% url 'front_dashboard:tracking_details' %}">Link </a>
+										{% comment %} <a href="{% url 'front_dashboard:tracking_details' %}">Link </a> {% endcomment %}
 										<h1 style="color: #0383FF; font-size: 45px;">TRACK YOUR SHIPMENT</h1>
 										<p class="mb-4" style="color: #fff;font-size: 13px; ">ENTER YOUR TRACKING NUMBER  THAT WE HAVE PROVIDED YOU.</p>
 										<form action="https://apexfte.com/tracking_general" method="get">
@@ -174,7 +174,7 @@ Everest International Cargo - The [Best] Cargo in Nepal
 
                         <div class="experience">
                             <div class="">
-                                <h2>20 Years Of Experience</h2>
+                                <h2>10 Years Of Experience</h2>
                             </div>
                         </div>
                     </div>
@@ -183,8 +183,8 @@ Everest International Cargo - The [Best] Cargo in Nepal
                 <div class="col-lg-6">
                     <div class="about-content">
                         <span class="top-title">About Us</span>
-                        <h2>Modern And Trusted Logistics Company</h2>
-                        <p>Everest International Exports (EIE) is one of the leading shipping companies in Nepal. As a part of DHL Express, FedEx, Ups, Aramex, DPD, and EMS the EIE  has been servicing worldwide for over 16 years. Our export service specializes in customizing a full-service logistics provider for you.</p>
+                        <h2>{{about_us.main_text}}</h2>
+                        <p>{{about_us.description}}</p>
                         
                         <ul>
                             <li>
@@ -565,10 +565,10 @@ Everest International Cargo - The [Best] Cargo in Nepal
 
 	$(".owl-carousel").owlCarousel({
 		items: 1,
-		loop  : false,
+		loop  : true,
 		margin : 30,
 		nav    : true,
-		
+
 		smartSpeed :900,
 		navText:["<div class='nav-btn prev-slide'></div>","<div class='nav-btn next-slide'></div>"],
 			

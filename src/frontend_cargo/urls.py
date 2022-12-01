@@ -12,7 +12,7 @@ urlpatterns = [
     path("contact_us/", ContactUsView.as_view(), name="contact_us"),
     
     path("blogs/", BlogsView.as_view(), name="blogs"),
-    path("blog_details/", BlogsDetailsView.as_view(), name="blogs_details"), 
+    path("blog_details/<int:id>/", BlogsDetailsView.as_view(), name="blogs_details"), 
 
     path("teams/", TeamsView.as_view(), name="teams"), 
 

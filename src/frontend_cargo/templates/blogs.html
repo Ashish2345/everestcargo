@@ -22,185 +22,72 @@ Blogs
     <section class="blog-column-three-area ptb-100">
         <div class="container">
             <div class="row">
+                {% for all_blog in all_blog %}
                 <div class="col-lg-4 col-md-6">
                     <div class="single-blog-post">
                         <div class="post-image">
                             <a href="#">
-                                <img src="assets/img/blog/blog-1.jpg" alt="image">
+                                <img src="{{all_blog.blog_image.url}}" alt="image">
                             </a>
                         </div>
 
                         <div class="blog-content">
                             <div class="date">
                                 <i class="bx bx-calendar"></i> 
-                                <span>06 October 2019</span>
+                                <span>{{all_blog.created_date}}</span>
                             </div>
 
                             <h3>
-                                <a href="#">New Cargo Shipment Is Open On The Global Market</a>
+                                <a href="#">{{all_blog.title}}</a>
                             </h3>
 
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam suscipit autem, ut odit quos nam temporibus pariatur.</p>
+                            <p>{{all_blog.description|slice:250}}</p>
 
-                            <a href="{% url 'front_dashboard:blogs_details' %}" class="default-btn">
+                            <a href="{% url 'front_dashboard:blogs_details' all_blog.id %}" class="default-btn">
                                 <span>Read More</span>
                             </a>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-lg-4 col-md-6">
-                    <div class="single-blog-post">
-                        <div class="post-image">
-                            <a href="#">
-                                <img src="assets/img/blog/blog-2.jpg" alt="image">
-                            </a>
-                        </div>
-
-                        <div class="blog-content">
-                            <div class="date">
-                                <i class="bx bx-calendar"></i> 
-                                <span>07 October 2019</span>
-                            </div>
-
-                            <h3>
-                                <a href="#">Transportation Charged Has Removed Form This Months</a>
-                            </h3>
-
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam suscipit autem, ut odit quos nam temporibus pariatur.</p>
-
-                            <a href="blog-details.html" class="default-btn">
-                                <span>Read More</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6">
-                    <div class="single-blog-post">
-                        <div class="post-image">
-                            <a href="#">
-                                <img src="assets/img/blog/blog-3.jpg" alt="image">
-                            </a>
-                        </div>
-
-                        <div class="blog-content">
-                            <div class="date">
-                                <i class="bx bx-calendar"></i>
-                                <span>08 October 2019</span>
-                            </div>
-
-                            <h3>
-                                <a href="#">Marketing Policy Added To The Logistic Service</a>
-                            </h3>
-
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam suscipit autem, ut odit quos nam temporibus pariatur.</p>
-
-                            <a href="blog-details.html" class="default-btn">
-                                <span>Read More</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6">
-                    <div class="single-blog-post">
-                        <div class="post-image">
-                            <a href="#">
-                                <img src="assets/img/blog/blog-4.jpg" alt="image">
-                            </a>
-                        </div>
-
-                        <div class="blog-content">
-                            <div class="date">
-                                <i class="bx bx-calendar"></i>
-                                <span>09 October 2019</span>
-                            </div>
-
-                            <h3>
-                                <a href="#">New Cargo Shipment Is Open On The USA Market</a>
-                            </h3>
-
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam suscipit autem, ut odit quos nam temporibus pariatur.</p>
-
-                            <a href="blog-details.html" class="default-btn">
-                                <span>Read More</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6">
-                    <div class="single-blog-post">
-                        <div class="post-image">
-                            <a href="#">
-                                <img src="assets/img/blog/blog-5.jpg" alt="image">
-                            </a>
-                        </div>
-
-                        <div class="blog-content">
-                            <div class="date">
-                                <i class="bx bx-calendar"></i>
-                                <span>10 October 2019</span>
-                            </div>
-
-                            <h3>
-                                <a href="#">New Cargo Shipment Is Open On The Global Market</a>
-                            </h3>
-
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam suscipit autem, ut odit quos nam temporibus pariatur.</p>
-
-                            <a href="blog-details.html" class="default-btn">
-                                <span>Read More</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6">
-                    <div class="single-blog-post">
-                        <div class="post-image">
-                            <a href="#">
-                                <img src="assets/img/blog/blog-6.jpg" alt="image">
-                            </a>
-                        </div>
-
-                        <div class="blog-content">
-                            <div class="date">
-                                <i class="bx bx-calendar"></i>
-                                <span>11 October 2019</span>
-                            </div>
-
-                            <h3>
-                                <a href="#">New Cargo Shipment Is Open On The Country Market</a>
-                            </h3>
-
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam suscipit autem, ut odit quos nam temporibus pariatur.</p>
-
-                            <a href="blog-details.html" class="default-btn">
-                                <span>Read More</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
+                {% endfor %}
+               
+                {% if all_blog.has_other_pages %}
                 <div class="col-lg-12 col-md-12">
                     <div class="pagination-area">
+
+                       
+                        
                         <!--
                             <a href="#" class="prev page-numbers">
                             <i class="bx bx-chevron-left"></i>
                         </a>
-                        -->
-
+                        --> 
+                        {% for number in all_blog.paginator.page_range %}
+                        {% if all_blog.number == number %}
                         <span class="page-numbers current" aria-current="page">1</span>
-                        <a href="#" class="page-numbers">2</a>
-                        <a href="#" class="page-numbers">3</a>
                         
-                        <a href="#" class="next page-numbers">
-                            <i class="bx bx-chevron-right"></i>
+                        {% else %}
+                        <a href="?page={{number}}">
+                        <span class="page-numbers current" aria-current="page">{{number}}</span>
                         </a>
+                        {% endif %}
+                        {% endfor %}
+
+                        {% if all_blog.has_next %}
+                            <a href="?page={{all_blog.next_page_number}}" class="next page-numbers">
+                                <i class="bx bx-chevron-right"></i>
+                                
+                            </a>
+                            {% else %}
+                            <a class="next page-numbers disabled">
+                                <i class="bx bx-chevron-right"></i>
+                                
+                            </a>
+                        {% endif %}
                     </div>
                 </div>
+                {% endif %}
             </div>
         </div>
     </section>
