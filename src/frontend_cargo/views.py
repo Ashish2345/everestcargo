@@ -25,11 +25,6 @@ class FrontDashView(View):
         }
         return render(request, self.template_name, self.args)
 
-    def post(self, request, *args, **kwargs):
-        if "track_shipment" in request.POST:
-            track_num = request.POST.get("track_id")
-            # track_details = 
-            pass
 
 
 class ServicesView(View):
@@ -168,10 +163,17 @@ class TrackingDetailsView(View):
         return super().dispatch(request, *args, **kwargs)
 
     def get(self, request, *args, **kwargs):
+        track_num = request.GET.get("awb_no")
+        qs = TrackingModel.objects.get(tracking_code=track_num)
+        print(track_num)
         self.args = {
+            "qs":qs,
             "page_name":"Tracking Details"
         }
         return render(request, self.template_name, self.args)
+
+
+
 
 class RequestQuotesView(View):
     def dispatch(self, request, *args, **kwargs):

@@ -26,7 +26,7 @@ Everest International Cargo - The [Best] Cargo in Nepal
 										{% comment %} <a href="{% url 'front_dashboard:tracking_details' %}">Link </a> {% endcomment %}
 										<h1 style="color: #0383FF; font-size: 45px;">TRACK YOUR SHIPMENT</h1>
 										<p class="mb-4" style="color: #fff;font-size: 13px; ">ENTER YOUR TRACKING NUMBER  THAT WE HAVE PROVIDED YOU.</p>
-										<form action="https://apexfte.com/tracking_general" method="get">
+										<form action="{% url 'front_dashboard:tracking_details' %}" method="get">
 											<div class="form-group d-flex">
 												<input type="number" class="form-control" name="awb_no" style="    padding-left: 20px;
 												padding-right: 20px;
@@ -34,7 +34,7 @@ Everest International Cargo - The [Best] Cargo in Nepal
 												background: white;
 
 												" placeholder="Enter your tracking number.">
-												<input type="submit" class="btn btn-primary btn-color text-white px-4" value="Track Now">
+												<input type="submit" class="btn btn-primary btn-color text-white px-4" value="Track Now" name="track_shipment">
 											</div>
 										</form>
 									</div>
@@ -215,7 +215,7 @@ Everest International Cargo - The [Best] Cargo in Nepal
 				<div class="section-title">
 					<span>Our Services</span> 
 					<h2>We Are Trusted For Our Services</h2>
-					<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugit porro, aliquid reprehenderit iusto inventore sint beatae ipsum impedit in sit numquam illum distinctio sequi quisquam et hic tempore</p>
+					<p>With years of experience, we are a top provider of logistics services. We pledge to offer any business in the world efficient courier, cargo, and logistical solutions.</p>
 				</div>
 
 				<div class="row">
@@ -225,7 +225,7 @@ Everest International Cargo - The [Best] Cargo in Nepal
 							<h3> AIR FREIGHT </h3>
 							<p>Air freight has been our core business for 16 years and we have right away access to numerous airlines to destinations across the world.</p>
 
-							<a href="services-details.html" class="read-more">
+							<a href="{% url 'front_dashboard:user_services' "air-freight" %}" class="read-more">
 								Read More
 							</a>
 						</div>

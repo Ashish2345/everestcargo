@@ -20,7 +20,7 @@ urlpatterns = [
 
     #tracking
     path("tracking/", TrackingView.as_view(), name="tracking_package"), 
-    path("tracking/details/", TrackingDetailsView.as_view(), name="tracking_details"), 
+    path("tracking/awb/", TrackingDetailsView.as_view(), name="tracking_details"), 
 
     #quotes
     path("request/quotes/", RequestQuotesView.as_view(), name="request_quotes"), 

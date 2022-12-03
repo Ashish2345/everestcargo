@@ -47,9 +47,9 @@
     <div class="navbar-area navbar-area-style-two">
         <div class="mobile-nav">
             <div class="container">
-                <div class="mobile-menu" style=" display: flex; align-items: center; ">
+                <div class="mobile-menu" style="align-items: center; ">
                     <div class="logo">
-                        <a href="index.html">
+                        <a href="{% url 'front_dashboard:frontdashboard' %}">
                             <img src="{{siteoption.logo_image.url}}" alt="logo" style="height: 120px; width:250px; margin-top: -20px;">
                         </a>
                     </div>
@@ -60,7 +60,7 @@
         <div class="desktop-nav">
             <div class="container">
                 <nav class="navbar navbar-expand-md navbar-light">
-                    <a class="navbar-brand" href="index.html">
+                    <a class="navbar-brand" href="{% url 'front_dashboard:frontdashboard' %}">
                         <img src="{{siteoption.logo_image.url}}" alt="logo" style="height: 120px; width:250px; margin-top: -20px;">
                     </a>
 

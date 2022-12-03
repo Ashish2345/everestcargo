@@ -1107,11 +1107,17 @@ Continuer Custom Width Area Style*/
     width: 60%;
     z-index: 0;
   }
+
+  .mobile-nav .logo a img{
+    width: 149px !important;
+    height: 82px !important;
+        margin-left: -30px;
+  }
   .mobile-nav .mobile-menu {
     position: relative;
   }
   .mobile-nav .mobile-menu.mean-container .mean-nav {
-    margin-top: 55px;
+    margin-top: 82px;
   }
   .mobile-nav .mobile-menu.mean-container .mean-nav ul {
     font-size: 15px;
