@@ -337,10 +337,10 @@ Everest International Cargo - The [Best] Cargo in Nepal
 				<div class="section-title">
 					<span>Our Testimonials</span>
 					<h2>Let's Know About All Of Our Client Says</h2>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.</p>
 				</div>
 
 				<div class="testimonials-slider-two owl-theme owl-carousel">
+					{% for testimonials in testimonials %}
 					<div class="single-testimonials-two">
 						<img src="" alt="Image">
 
@@ -371,65 +371,9 @@ Everest International Cargo - The [Best] Cargo in Nepal
 						</div>
 					</div>
 
-					<div class="single-testimonials-two">
-						<img src="" alt="Image">
+				{% endfor %}
 
-						<h3>Anna Dew</h3>
-						<span>Developer</span>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
-
-						<ul>
-							<li>
-								<i class="bx bxs-star"></i>
-							</li>
-							<li>
-								<i class="bx bxs-star"></i>
-							</li>
-							<li>
-								<i class="bx bxs-star"></i>
-							</li>
-							<li>
-								<i class="bx bxs-star"></i>
-							</li>
-							<li>
-								<i class="bx bxs-star"></i>
-							</li>
-						</ul>
-						
-						<div class="quotes">
-							<i class="flaticon-left-quotes-sign"></i>
-						</div>
-					</div>
-
-					<div class="single-testimonials-two">
-						<img src="" alt="Image">
-
-						<h3>Jecty Smith</h3>
-						<span>UI UX Designer</span>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
-
-						<ul>
-							<li>
-								<i class="bx bxs-star"></i>
-							</li>
-							<li>
-								<i class="bx bxs-star"></i>
-							</li>
-							<li>
-								<i class="bx bxs-star"></i>
-							</li>
-							<li>
-								<i class="bx bxs-star"></i>
-							</li>
-							<li>
-								<i class="bx bxs-star"></i>
-							</li>
-						</ul>
-						
-						<div class="quotes">
-							<i class="flaticon-left-quotes-sign"></i>
-						</div>
-					</div>
+					
 				</div>
 			</div>
 		</section>

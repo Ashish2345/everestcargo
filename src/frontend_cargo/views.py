@@ -15,7 +15,7 @@ class FrontDashView(View):
     def get(self, request, *args, **kwargs):
         about_us = AboutUsModel.objects.first()
         faq_model = FAQModel.objects.all()[::3]
-        testimonials = TestimonialsModel.objects.all()[::4]
+        testimonials = TestimonialsModel.objects.all()[::3]
         blogs = BlogModel.objects.all()[::6]
         self.args = {
             "about_us":about_us,
