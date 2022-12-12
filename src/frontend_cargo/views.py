@@ -36,11 +36,11 @@ class ServicesView(View):
     def get(self, request, *args, **kwargs):
         name = kwargs.get("name")
         try:
-            service_details = ServiceModel.objects.filter(tag_name=name).latest()
+            service_details = ServiceModel.objects.filter(tag_name=name).first()
         except:
             service_details = []
         self.args = {
-            "page_name":name,
+            "page_name":service_details.service_name,
             "service_details":service_details
         }
 
@@ -56,7 +56,8 @@ class AboutUsView(View):
         about_us = AboutUsModel.objects.first()
         self.args = {
             "page_name":"About Us",
-            "about_us":about_us
+            "about_us":about_us,
+            "img_url":"/django-static/img/cargo_img/about_us.jpg",    
         }
         return render(request, self.template_name, self.args)
 
@@ -69,7 +70,8 @@ class ContactUsView(View):
 
     def get(self, request, *args, **kwargs):
         self.args = {
-            "page_name":"Contact Us"    
+            "page_name":"Contact Us",
+             "img_url":"/django-static/img/cargo_img/contact_us.jpg",    
         }
         return render(request, self.template_name, self.args)
 
@@ -96,7 +98,8 @@ class BlogsView(View):
         paged_blogs = paginator.get_page(page)
         self.args = {
             "page_name":"Blog",
-            "all_blog":paged_blogs
+            "all_blog":paged_blogs,
+            "img_url":"/django-static/img/cargo_img/blog_i.jpg",
         }
         return render(request, self.template_name, self.args)
 
@@ -107,14 +110,27 @@ class BlogsDetailsView(View):
         return super().dispatch(request, *args, **kwargs)
 
     def get(self, request, *args, **kwargs):
+        all_blogs = BlogModel.objects.all().order_by("-created_date")
 
         blog_id = kwargs.get("id")
         blog_details = BlogModel.objects.get(id=blog_id)
+        comment = CommentModel.objects.filter(blog=blog_details)
         self.args = {
             "page_name":"Blog Details",
-            "blog_details":blog_details
+            "blog_details":blog_details,
+            "img_url":"/django-static/img/cargo_img/blog_i.jpg",
+            "comment":comment,
+            "comment_count":comment.count(),
+            "all_blogs":all_blogs
         }
         return render(request, self.template_name, self.args)
+
+    def post(self, request, *args, **kwargs):
+
+        blog_id = kwargs.get("id")
+        blog_details = BlogModel.objects.get(id=blog_id)
+        CommentModel.objects.create(blog=blog_details,creater_name=request.POST.get('name'),creater_email=request.POST.get('email'),comment=request.POST.get('message') )
+        return HttpResponseRedirect(request.META.get("HTTP_REFERER"))
 
 class TeamsView(View):
     def dispatch(self, request, *args, **kwargs):
@@ -126,6 +142,7 @@ class TeamsView(View):
         all_teams = Teams.objects.all()
         self.args = {
             "page_name":"Teams",
+            "img_url":"/django-static/img/cargo_img/5471.jpg",
             "all_teams":all_teams
         }
         return render(request, self.template_name, self.args)
@@ -138,7 +155,8 @@ class GlobalLocationView(View):
 
     def get(self, request, *args, **kwargs):
         self.args = {
-            "page_name":"Locations"
+            "page_name":"Locations",
+            "img_url":"/django-static/img/cargo_img/global-communication-background-business-network-design.jpg",
         }
         return render(request, self.template_name, self.args)
 
@@ -151,7 +169,8 @@ class TrackingView(View):
 
     def get(self, request, *args, **kwargs):
         self.args = {
-            "page_name":"Tracking"
+            "page_name":"Tracking",
+             "img_url":"/django-static/img/cargo_img/track.jpg",    
         }
         return render(request, self.template_name, self.args)
 

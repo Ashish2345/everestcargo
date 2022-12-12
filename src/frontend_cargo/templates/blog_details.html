@@ -41,7 +41,13 @@ Services
                                 <li>
                                     <a href="#">
                                         <i class="bx bx-comment"></i>
+                                        {% if comment %}
+                                        {{comment_count}} comments
+                                        
+                                        {% else %}
                                         No comments
+                                        {% endif %}
+                                        
                                     </a>
                                 </li>
 
@@ -51,27 +57,25 @@ Services
                                 </li>
                             </ul>
                             
-                            <h3>Marketing Policy Added To The Logistic Service</h3>
+                            <h3>{{blog_details.title}}</h3>
 
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempo.</p>
+                            <p>{{blog_details.description}}</p>
 
-                            <p>Praesent dapibus, neque id cursus faucibus, tortor neque egestas auguae, eu vulputate magna eros eu Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus.</p>
                         </div>
 
                         <blockquote>
-                            <p>“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temporincididunt ut labore dolore magna aliqua.”</p>
+                            <p>“{{blog_details.highlighted_text}}”</p>
                             <i class="bx bxs-quote-alt-left"></i>
                         </blockquote>
 
                         <div class="news-content-2">
-                            <p>Phasellus ultrices nulla quis nibh. Quisque a lectus. Donec consectetuer ligula vulputate sem tristique Nam nulla quam, gravida non, commodo a, sodales sit amet, nisi nulla quis nibh. Quisque a lectus. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. malesuada erat ut turpis. Suspendisse urna nibh, viverra non semper suscipit</p>
                         </div>
 
                         <div class="row">
                             <div class="col-lg-6 col-md-6">
                                 <div class="single-blog-post-img">
                                     <a href="blog-details.html">
-                                        <img src="assets/img/blog-details/blog-1.jpg" alt="Image">
+                                        <img src="{{blog_details.sub_image1.url}}" alt="Image">
                                     </a>
                                 </div>
                             </div>
@@ -79,44 +83,30 @@ Services
                             <div class="col-lg-6 col-md-6">
                                 <div class="single-blog-post-img">
                                     <a href="blog-details.html">
-                                        <img src="assets/img/blog-details/blog-2.jpg" alt="Image">
+                                        <img src="{{blog_details.sub_image2.url}}" alt="Image">
                                     </a>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="news-content-3">
-                            <p>Phasellus ultrices nulla quis nibh. Quisque a lectus. Donec consectetuer ligula vulputate sem tristique Nam nulla quam, gravida non, commodo a, sodales sit amet, nisi nulla quis nibh. Quisque a lectus. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. malesuada erat ut turpis. Suspendisse urna nibh, viverra non semper suscipit.</p>
-                        </div>
+                       
                     </div>
 
                     <div class="comments">
-                        <h3>Comments (2)</h3>
+                        <h3>Comments ({{comment_count}})</h3>
 
                         <ul>
+                            {% for comment in comment %}
                             <li>
-                                <img src="assets/img/blog-details/comments-1.jpg" alt="Image">
-                                <h3>Juanita Jones</h3>
-                                <span>Monday, October 20, 2020</span>
+                                <h3>{{comment.creater_name}}</h3>
+                                <span>{{comment.created_date}}</span>
 
-                                <p>Lorem ipsum dolora sit amet, consectetur adipiscing elit sed do eiusmod tempor incdidunt labore et dolore magna aliqua. Veniam quis nostrud exercitation ullaco</p>
+                                <p>{{comment.comment}}</p>
 
-                                <a href="#">
-                                    Reply
-                                </a>
                             </li>
+                            {% endfor %}
 
-                            <li>
-                                <img src="assets/img/blog-details/comments-2.jpg" alt="Image">
-                                <h3>Ward F. Nelson</h3>
-                                <span>Monday, October 20, 2020</span>
-
-                                <p>Lorem ipsum dolora sit amet, consectetur adipiscing elit sed do eiusmod tempor incdidunt labore et dolore magna aliqua. Veniam quis nostrud exercitation ullaco</p>
-
-                                <a href="#">
-                                    Reply
-                                </a>
-                            </li>
+                           
                         </ul>
                     </div>
 
@@ -124,7 +114,8 @@ Services
                         <h3>Leave A Reply</h3>
                         <p>Your email address will not be published. Required fields are marked<span class="star">*</span></p>
 
-                        <form>
+                        <form method="post">
+                            {% csrf_token %}
                             <div class="row">
                                 <div class="col-lg-6 col-sm-6">
                                     <div class="form-group">
@@ -176,95 +167,28 @@ Services
 
             <div class="col-lg-4">
                 <div class="widget-sidebar">
-                    <div class="sidebar-widget search">
-                        <form class="search-form">
-                            <input class="form-control" name="search" placeholder="Search here" type="text">
-                            <button class="search-button" type="submit">
-                                <i class="bx bx-search"></i>
-                            </button>
-                        </form>	
-                    </div>
+                  
+                    
 
                     <div class="sidebar-widget recent-post">
                         <h3 class="widget-title">Recent Post</h3>
                         
                         <ul>
+                            {% for all_blogs in all_blogs %}
                             <li>
-                                <a href="blog-details.html">
-                                    New Cargo Shipment Is Open On The Global Market
-                                    <img src="assets/img/blog-details/recent-post-1.jpg" alt="Image">
+                                <a href="{% url 'front_dashboard:blogs_details' all_blogs.id %}' %}">
+                                    {{all_blogs.title}}
+                                    <img src="{{all_blogs.blog_image.url}}" alt="Image" style="height: 2.9rem; width: 5rem;">
                                 </a>
-                                <span>October 19,2020</span>
+                                <span>{{all_blogs.created_date}}</span>
                             </li>
-                            <li>
-                                <a href="blog-details.html">
-                                    Marketing Policy Added To The Logistic Service
-                                    <img src="assets/img/blog-details/recent-post-2.jpg" alt="Image">
-                                </a>
-                                <span>October 18,2020</span>
-                            </li>
-                            <li>
-                                <a href="blog-details.html">
-                                    Marketing Policy Added To The Logistic Service
-                                    <img src="assets/img/blog-details/recent-post-3.jpg" alt="Image">
-                                </a>
-                                <span>October 09,2020</span>
-                            </li>
+                            {% endfor %}
                         </ul>
                     </div>
 
-                    <div class="sidebar-widget categories">
-                        <h3>Categories</h3>
+                  
 
-                        <ul>
-                            <li>
-                                <a href="#">Road Transport <span>(05)</span></a>
-                            </li>
-                            <li>
-                                <a href="#">Sea Transport <span>(07)</span></a>
-                            </li>
-                            <li>
-                                <a href="#">Air Transport <span>(10)</span></a>
-                            </li>
-                            <li>
-                                <a href="#">Courier Service <span>(09)</span></a>
-                            </li>
-                            <li>
-                                <a href="#">Fast Freight <span>(12)</span></a>
-                            </li>
-                            <li>
-                                <a href="#">Home Delivery <span>(11)</span></a>
-                            </li>
-                            <li>
-                                <a href="#">Packaging <span>(03)</span></a>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="sidebar-widget categories">
-                        <h3>Archives</h3>
-
-                        <ul>
-                            <li>
-                                <a href="#">August <span>2020</span></a>
-                            </li>
-                            <li>
-                                <a href="#">June <span>2020</span></a>
-                            </li>
-                            <li>
-                                <a href="#">April <span>2020</span></a>
-                            </li>
-                            <li>
-                                <a href="#">January <span>2020</span></a>
-                            </li>
-                            <li>
-                                <a href="#">December <span>2020</span></a>
-                            </li>
-                            <li>
-                                <a href="#">November <span>2020</span></a>
-                            </li>
-                        </ul>
-                    </div>
+                 
 
                     <div class="sidebar-widget tags mb-0">
                         <h3>Tags</h3>

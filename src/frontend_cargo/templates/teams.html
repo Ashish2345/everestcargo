@@ -14,7 +14,6 @@ Services
 
 {% block content %}
 
-{% include "page_header_ban.html" %}
 
 
 {% include "page_header_ban.html" %}
@@ -28,22 +27,23 @@ Services
         </div>
 
         <div class="row">
+            {% for team in all_teams %}
             <div class="col-lg-4 col-md-6">
                 <div class="single-team-member">
-                    <img src="assets/img/team/team-1.jpg" alt="Image">
+                    <img src="{{team.user_image.url}}" alt="Image">
 
                     <div class="team-content">
-                        <span>Cargo Department</span>
-                        <h3>David Cunningham</h3>
+                        <span>{{team.designation}}</span>
+                        <h3>{{team.full_name}}</h3>
 
                         <div class="team-social">
-                            <a href="#" class="control">
+                            <a href="{{team.fb_url}}" class="control">
                                 <i class="bx bx-share-alt"></i>
                             </a>
 
                             <ul>
                                 <li>
-                                    <a href="#">
+                                    <a href="{{team.twitter_url}}">
                                         <i class="bx bxl-twitter"></i>
                                     </a>
                                 </li>
@@ -53,12 +53,12 @@ Services
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#">
+                                    <a href="{{team.fb_url}}">
                                         <i class="bx bxl-facebook"></i>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#">
+                                    <a href="{{team.linkedin_url}}">
                                         <i class="bx bxl-linkedin-square"></i>
                                     </a>
                                 </li>
@@ -67,206 +67,9 @@ Services
                     </div>
                 </div>
             </div>
+            {% endfor %}
 
-            <div class="col-lg-4 col-md-6">
-                <div class="single-team-member">
-                    <img src="assets/img/team/team-2.jpg" alt="Image">
-
-                    <div class="team-content">
-                        <span>Shipment Department.</span>
-                        <h3>Michele A. Murphy</h3>
-                        
-                        <div class="team-social">
-                            <a href="#" class="control">
-                                <i class="bx bx-share-alt"></i>
-                            </a>
-
-                            <ul>
-                                <li>
-                                    <a href="#">
-                                        <i class="bx bxl-twitter"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="bx bxl-instagram"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="bx bxl-facebook"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="bx bxl-linkedin-square"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6">
-                <div class="single-team-member">
-                    <img src="assets/img/team/team-3.jpg" alt="Image">
-
-                    <div class="team-content">
-                        <span>CEO</span>
-                        <h3>Margert Scott</h3>
-                        
-                        <div class="team-social">
-                            <a href="#" class="control">
-                                <i class="bx bx-share-alt"></i>
-                            </a>
-
-                            <ul>
-                                <li>
-                                    <a href="#">
-                                        <i class="bx bxl-twitter"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="bx bxl-instagram"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="bx bxl-facebook"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="bx bxl-linkedin-square"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6">
-                <div class="single-team-member">
-                    <img src="assets/img/team/team-4.jpg" alt="Image">
-
-                    <div class="team-content">
-                        <span>Transputer</span>
-                        <h3>Juhon Scott</h3>
-                        
-                        <div class="team-social">
-                            <a href="#" class="control">
-                                <i class="bx bx-share-alt"></i>
-                            </a>
-
-                            <ul>
-                                <li>
-                                    <a href="#">
-                                        <i class="bx bxl-twitter"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="bx bxl-instagram"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="bx bxl-facebook"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="bx bxl-linkedin-square"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6">
-                <div class="single-team-member">
-                    <img src="assets/img/team/team-5.jpg" alt="Image">
-
-                    <div class="team-content">
-                        <span>Company CEO</span>
-                        <h3>Alex Smith</h3>
-                        
-                        <div class="team-social">
-                            <a href="#" class="control">
-                                <i class="bx bx-share-alt"></i>
-                            </a>
-
-                            <ul>
-                                <li>
-                                    <a href="#">
-                                        <i class="bx bxl-twitter"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="bx bxl-instagram"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="bx bxl-facebook"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="bx bxl-linkedin-square"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6">
-                <div class="single-team-member">
-                    <img src="assets/img/team/team-6.jpg" alt="Image">
-
-                    <div class="team-content">
-                        <span>M.D</span>
-                        <h3>Kliva Dew</h3>
-                        
-                        <div class="team-social">
-                            <a href="#" class="control">
-                                <i class="bx bx-share-alt"></i>
-                            </a>
-
-                            <ul>
-                                <li>
-                                    <a href="#">
-                                        <i class="bx bxl-twitter"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="bx bxl-instagram"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="bx bxl-facebook"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="bx bxl-linkedin-square"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
+           
         </div>
     </div>
 </section>

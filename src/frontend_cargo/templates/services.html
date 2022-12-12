@@ -21,27 +21,30 @@ Services
         <div class="row">
             <div class="col-lg-8">
                 <div class="details-img">
-                    <img src="{% static 'img/cargo_img/air-freight.jpg' %}" alt="Image">
+                    <img src="{{service_details.main_service_image.url}}" alt="Image">
                 </div>
 
                 <div class="content-one">
-                    <h3>Quality And Performance At The Right Price And Places</h3>
-                    <p>Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat  possim</p>
-                    <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing.</p>
+                    <h3>{{service_details.first_text}}</h3>
+                  
+                        <p>{{service_details.first_description}}</p>
+                        
+                       
+                    </p>
                 </div>
 
                 <div class="content-two">
                     <div class="row align-items-center">
                         <div class="col-lg-6 col-md-6">
                             <div class="mb-30">
-                                <h3>Safety & Quality</h3>
-                                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, At accusam aliquyam diam diam dolore dolores duo eirmod eos erat, et nonumy sed tempor et et invidunt justo labore Stet clita ea et gubergren, kasd magna no rebum. sanctus sea sed takimata ut vero voluptua. est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr sed takimata ut vero voluptua ipsum no rebum. sanctus sea sed takimata rebum.</p>
+                                <h3>{{service_details.second_text}}</h3>
+                                <p>{{service_details.second_description}}</p>
                             </div>
                         </div>
 
                         <div class="col-lg-6 col-md-6">
                             <div class="services-details-img mb-30">
-                                <img src="assets/img/services-details/services-1.jpg" alt="Image">
+                                <img src="{{service_details.second_service_image.url}}" alt="Image">
                             </div>
                         </div>
                     </div>
@@ -50,14 +53,14 @@ Services
                         <div class="row align-items-center">
                             <div class="col-lg-6 col-md-6">
                                 <div class="services-details-img mb-30">
-                                    <img src="assets/img/services-details/services-2.jpg" alt="Image">
+                                    <img src="{{service_details.third_service_image.url}}" alt="Image">
                                 </div>
                             </div>
 
                             <div class="col-lg-6 col-md-6">
                                 <div class="mb-30">
-                                    <h3>Care For Environment</h3>
-                                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, At accusam aliquyam diam diam dolore dolores duo eirmod eos erat, et nonumy sed tempor et et invidunt justo labore Stet clita ea et gubergren, kasd magna no rebum. sanctus sea sed takimata ut vero voluptua. est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr sed takimata ut vero voluptua ipsum no rebum. sanctus sea sed takimata rebum.</p>
+                                    <h3>{{service_details.third_text}}</h3>
+                                    <p>{{service_details.third_description}}</p>
                                 </div>
                             </div>
                         </div>

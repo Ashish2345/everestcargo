@@ -385,110 +385,39 @@ Everest International Cargo - The [Best] Cargo in Nepal
 				<div class="section-title">
 					<span>Our Blog</span>
 					<h2>Make A Relation With Our Blog Article And Meet With Our Blogs</h2>
-					<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugit porro, aliquid reprehenderit iusto inventore sint beatae ipsum impedit in sit numquam illum distinctio sequi quisquam et hic tempore</p>
+					<p>Read Our Amazing Blogs to know more about the shipping information.</p>
 				</div>
 
 				<div class="row">
 					<div class="blog-slider owl-carousel owl-theme">
+						
+						{% for blog in blogs %}
 						<div class="single-blog-post">
 							<div class="post-image">
 								<a href="#">
-									<img src="assets/img/blog/blog-1.jpg" alt="image">
+									<img src="{{blog.blog_image.url}}" alt="image">
 								</a>
 							</div>
 
 							<div class="blog-content">
 								<div class="date">
 									<i class="bx bx-calendar"></i> 
-									<span>06 October 2019</span>
+									<span>{{blog.created_date}}</span>
 								</div>
 
 								<h3>
-									<a href="#">New Cargo Shipment Is Open On The Global Market</a>
+									<a href="#">{{blog.title}}</a>
 								</h3>
 
-								<p>Luis ipsum suspendisse ultrices. Risus commodo viverra maecenas accumsan lacus vel facilisis ultrices Risus ipsum.</p>
+								<p>{{blog.description|slice:250}}...</p>
 
 								<a href="blog-details.html" class="default-btn">
 									<span>Read More</span>
 								</a>
 							</div>
 						</div>
-
-						<div class="single-blog-post">
-							<div class="post-image">
-								<a href="#">
-									<img src="assets/img/blog/blog-2.jpg" alt="image">
-								</a>
-							</div>
-
-							<div class="blog-content">
-								<div class="date">
-									<i class="bx bx-calendar"></i> 
-									<span>07 October 2019</span>
-								</div>
-
-								<h3>
-									<a href="#">Transportation Charged Has Removed Form This Months</a>
-								</h3>
-
-								<p>Luis ipsum suspendisse ultrices. Risus commodo viverra maecenas accumsan lacus vel facilisis ultrices Risus ipsum.</p>
-
-								<a href="blog-details.html" class="default-btn">
-									<span>Read More</span>
-								</a>
-							</div>
-						</div>
-
-						<div class="single-blog-post">
-							<div class="post-image">
-								<a href="#">
-									<img src="assets/img/blog/blog-3.jpg" alt="image">
-								</a>
-							</div>
-
-							<div class="blog-content">
-								<div class="date">
-									<i class="bx bx-calendar"></i>
-									<span>08 October 2019</span>
-								</div>
-
-								<h3>
-									<a href="#">Marketing Policy Added Into The Logistic Service</a>
-								</h3>
-
-								<p>Luis ipsum suspendisse ultrices. Risus commodo viverra maecenas accumsan lacus vel facilisis ultrices Risus ipsum.</p>
-
-								<a href="blog-details.html" class="default-btn">
-									<span>Read More</span>
-								</a>
-							</div>
-						</div>
-
-						<div class="single-blog-post">
-							<div class="post-image">
-								<a href="#">
-									<img src="assets/img/blog/blog-4.jpg" alt="image">
-								</a>
-							</div>
-
-							<div class="blog-content">
-								<div class="date">
-									<i class="bx bx-calendar"></i> 
-									<span>09 October 2019</span>
-								</div>
-
-								<h3>
-									<a href="#">Transportation Charged Has Removed Form This Months</a>
-								</h3>
-
-								<p>Luis ipsum suspendisse ultrices. risus commodo viverra maecenas accumsan lacus vel facilisis ultrices risus ipsum.</p>
-
-								<a href="blog-details.html" class="default-btn">
-									<span>Read More</span>
-								</a>
-							</div>
-						</div>
+						{% endfor %}
+						
 					</div>
 				</div>
 			</div>
