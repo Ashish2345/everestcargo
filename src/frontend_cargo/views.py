@@ -14,8 +14,8 @@ class FrontDashView(View):
 
     def get(self, request, *args, **kwargs):
         about_us = AboutUsModel.objects.first()
-        faq_model = FAQModel.objects.all()[::3]
-        testimonials = TestimonialsModel.objects.all()[::3]
+        faq_model = FAQModel.objects.all()
+        testimonials = TestimonialsModel.objects.all()
         blogs = BlogModel.objects.all()[::6]
         self.args = {
             "about_us":about_us,
@@ -40,6 +40,7 @@ class ServicesView(View):
         except:
             service_details = []
         self.args = {
+            "img_url":"/django-static/img/cargo_img/ser.png",    
             "page_name":service_details.service_name,
             "service_details":service_details
         }
