@@ -6,6 +6,13 @@ Everest International Cargo - The [Best] Cargo in Nepal
 {% endblock title %}
 
 {% block css %}
+<style>
+
+	.partners_box
+	{
+		background-color:white;
+	}
+</style>
 
 
 
@@ -181,58 +188,71 @@ Everest International Cargo - The [Best] Cargo in Nepal
 	<!-- shipping PArtner-->
 	<div class="page-content yq-panel-coop mt-3" data-cur-coop="0" style="z-index: 1;">
     
-		<section class="fixWidth text-center bg-color ptb-70" data-animation-in="">
+		<section class="fixWidth text-center bg-color pt-70 pb-40" data-animation-in="">
 			<div class="section-title">
 				<span>Our Shipping Partners</span> 
 				<h2>World Best Courier/Cargo Provider for shipment.</h2>
 			</div>
 		   <div class="coop-container margin-bottom-30">
 			  <ul id="jcCoopContainer" class="row">
-				 <div style=" display: contents; ">
-					<li class="col-xs-12 col-sm-12 col-md-4 " 
-					data-carrier="190008" 
-					data-animation-in=""> 
-					<a href="/en/brand/yunexpress"
-					 data-isour="true">
-					 <span class="e-logo">
-						<img yqrole="img" 
-						src="{% static 'img/company_logo/dhl.png' %}" style="margin-top:10px">
-					</span></a></li>
-					<li class="col-xs-12 col-sm-12 col-md-4 " 
-					data-carrier="190002" data-animation-in="">
+				 <div style=" display: contents; " class="row">
+					
+						<div class="col-xs-12 col-sm-12 col-md-4">
+							<div class="single-services-box partners_box">
+									
+									 
+									<a href="/en/brand/yunexpress"
+									data-isour="true">
+									<span class="e-logo">
+										<img yqrole="img" 
+										src="{% static 'img/company_logo/dhl.png' %}" style="margin-top:10px">
+									</span></a>
+								</div>
+							</div>
+							<div class="col-xs-12 col-sm-12 col-md-4">
+								<div class="single-services-box partners_box">
+										
+								<a href="" >
+									<span>
+										<img 
+										src="{% static 'img/company_logo/arame.png' %}" style="margin-top:4px;height:73px">
+									</span>
+									
+						
+					   
+					</a></div>
+				</div>
+				<div class="col-xs-12 col-sm-12 col-md-4">
+					<div class="single-services-box partners_box">
+					
 					 <a href="/en/brand/flyt" data-isour="true">
 						<span class="e-logo">
 							<img yqrole="img" 
-							src="{% static 'img/company_logo/aramex.png' %}" style="margin-top:4px;height:100px">
+							src="{% static 'img/company_logo/dpd.png' %}" style= "height:73px">
 						</span>
 						
 						
 					   
-					</a></li>
-					<li class="col-xs-12 col-sm-12 col-md-4 fadeFromBottom" 
-					data-carrier="190002" data-animation-in="">
+					</a></div>
+				</div>
+				<div class="col-xs-12 col-sm-12 col-md-3">
+					<div class="single-services-box partners_box">
+					
+					
 					 <a href="/en/brand/flyt" data-isour="true">
 						<span class="e-logo">
 							<img yqrole="img" 
-							src="{% static 'img/company_logo/dpd.png' %}">
+							src="{% static 'img/company_logo/fedex.png' %}" style="height:77px">
 						</span>
 						
 						
 					   
-					</a></li>
-					<li class="col-xs-12 col-sm-12 col-md-3 fadeFromBottom" 
-					data-carrier="190002" data-animation-in="">
-					 <a href="/en/brand/flyt" data-isour="true">
-						<span class="e-logo">
-							<img yqrole="img" 
-							src="{% static 'img/company_logo/fedex.png' %}">
-						</span>
-						
-						
-					   
-					</a></li>
-					<li class="col-xs-12 col-sm-12 col-md-3 fadeFromBottom" 
-					data-carrier="190002" data-animation-in="">
+					</a></div>
+				</div>
+				<div class="col-xs-12 col-sm-12 col-md-3">
+					<div class="single-services-box partners_box">
+					
+					
 					 <a href="/en/brand/flyt" data-isour="true">
 						<span class="e-logo">
 							<img yqrole="img" 
@@ -241,29 +261,34 @@ Everest International Cargo - The [Best] Cargo in Nepal
 						
 						
 					   
-					</a></li>
-					<li class="col-xs-12 col-sm-12 col-md-3 fadeFromBottom" 
-					data-carrier="190002" data-animation-in="">
+					</a></div>
+				</div>
+				<div class="col-xs-12 col-sm-12 col-md-3">
+					<div class="single-services-box partners_box">
+					
 					 <a href="/en/brand/flyt" data-isour="true">
 						<span class="e-logo">
 							<img yqrole="img" 
-							src="{% static 'img/company_logo/skynet.png' %}" style="height:29px;margin-top:30px">
+							src="{% static 'img/company_logo/skynet.png' %}" style="height: 63px;margin-top: 17px;">
 						</span>
 						
 						
 					   
-					</a></li>
-					<li class="col-xs-12 col-sm-12 col-md-3 fadeFromBottom" 
-					data-carrier="190002" data-animation-in="">
+					</a></div>
+				</div>
+				<div class="col-xs-12 col-sm-12 col-md-3">
+					<div class="single-services-box partners_box">
+					
 					 <a href="/en/brand/flyt" data-isour="true">
 						<span class="e-logo">
 							<img yqrole="img" 
-							src="{% static 'img/company_logo/tnt.png' %}" style="height:45px;margin-top:30px">
+							src="{% static 'img/company_logo/tnt.png' %}" style="height:84px;">
 						</span>
 						
 						
 					   
-					</a></li>
+					</a></div>
+				</div>
 				 </div>
 			  </ul>
 		   </div>
