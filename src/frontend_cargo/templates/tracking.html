@@ -6,7 +6,150 @@ Tracking
 {% endblock title %}
 
 {% block css %}
+<style>
 
+    .page-content {
+        color: #424242;
+        padding: 0;
+    }
+    .page-content section.fixWidth {
+        max-width: 1440px;
+        padding-right: 30px;
+        padding-left: 30px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    .page-content h2 {
+        font-size: 36px;
+        font-weight: 700;
+        text-align: center;
+    }
+    .yq-panel-coop h2 {
+        text-transform: uppercase;
+    }
+   
+    .page-content h2+p {
+        text-align: center;
+        margin: 0;
+    }
+    .coop-container {
+        margin: 0 auto 30px;
+    }
+    .coop-container ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+    .coop-container ul li {
+        position: relative;
+        height: 120px;
+        margin-bottom: 30px;
+        padding: 12px;
+    }
+    .coop-container ul li>a {
+        position: relative;
+        display: block;
+        height: 100%;
+        overflow: hidden;
+        color: #757575;
+        background: #fff;
+        -webkit-transform: scale(1);
+        -moz-transform: scale(1);
+        -ms-transform: scale(1);
+        transform: scale(1);
+        -webkit-transition: .3s;
+        -moz-transition: .3s;
+        transition: .3s;
+        border-radius: 8px;
+        -webkit-box-shadow: 0 4px 12px 0 rgb(67 70 82 / 12%), 0 2px 4px 0 rgb(67 70 82 / 12%);
+        box-shadow: 0 4px 12px 0 rgb(67 70 82 / 12%), 0 2px 4px 0 rgb(67 70 82 / 12%);
+    }
+    .coop-container ul li>a .e-logo {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+        opacity: 1;
+        -webkit-transform: scale(1,1);
+        -moz-transform: scale(1,1);
+        -ms-transform: scale(1,1);
+        transform: scale(1,1);
+        -webkit-transition: .3s ease-in-out;
+        -moz-transition: .3s ease-in-out;
+        transition: .3s ease-in-out;
+    }
+
+    .coop-container ul li>a .mask {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-position: center center;
+        background-repeat: no-repeat;
+        z-index: 1;
+        -webkit-transform: scale(1.5,1.5);
+        -moz-transform: scale(1.5,1.5);
+        -ms-transform: scale(1.5,1.5);
+        transform: scale(1.5,1.5);
+        transition: .4s ease-in-out;
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -moz-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        -moz-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+    }
+    .coop-container ul li>a .action {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        color: #212121;
+        z-index: 3;
+    }
+    .coop-container ul li>a .action .name {
+        position: relative;
+        display: block;
+        padding-top: 25px;
+        font-size: 24px;
+        font-weight: 600;
+        -webkit-transform: translateY(-20px);
+        -moz-transform: translateY(-20px);
+        -ms-transform: translateY(-20px);
+        transform: translateY(-20px);
+        transition: .4s ease-in-out;
+    }
+    .coop-container ul li>a .action .btns {
+        display: inline-block;
+        position: absolute;
+        left: 50%;
+        bottom: 28px;
+        margin-left: -40px;
+        width: 80px;
+        line-height: 24px;
+        border-radius: 2px;
+        opacity: 0;
+        -webkit-transform: translateY(20px);
+        -moz-transform: translateY(20px);
+        -ms-transform: translateY(20px);
+        transform: translateY(20px);
+        -webkit-transition: .4s ease-in-out;
+        -moz-transition: .4s ease-in-out;
+        transition: .4s ease-in-out;
+    }
+    
+    
+</style>
 
 
 
@@ -15,7 +158,7 @@ Tracking
 {% block content %}
 {% include "page_header_ban.html" %}
 <!-- Start Track Area -->
-<section class="track-area ptb-100 jarallax" data-jarallax='{"speed": 0.3}'>
+<section class="mt-5" data-jarallax='{"speed": 0.3}'>
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
@@ -34,7 +177,7 @@ Tracking
                        
 
                         <div class="tabs_item">
-                            <form>
+                            <form action="{% url 'front_dashboard:tracking_details' %}" method="get">
                                 <div class="row">
                                    
                                     </div>
@@ -45,9 +188,10 @@ Tracking
 
                                     <div class="col-12">
                                         <div class="form-group">
-                                            <textarea class="form-control" placeholder="You can enter up to a maximum of 10 airway bill numbers for tracking."></textarea>
+                                            <textarea class="form-control" name="awb_no" placeholder="Enter your tracking number."></textarea>
                                         </div>
                                     </div>
+                                    <p style="color:red">{{message}}</p>
                                 
 
                               
@@ -70,5 +214,94 @@ Tracking
 </section>
 <!-- End Track Area -->
 
-
-{% endblock %}
+<div class="page-content yq-panel-coop mt-3" data-cur-coop="0" style="z-index: 1;">
+    
+    <section class="fixWidth text-center " data-animation-in="">
+       <h2 class="grey-900 " data-animation-in="">Top Shipping Carriers</h2>
+       <p class="grey-900 font-size-16 margin-bottom-30 " data-animation-in="">A high-quality carrier helps to complete your tracking information.</p>
+       <div class="coop-container margin-bottom-30">
+          <ul id="jcCoopContainer" class="row">
+             <div style=" display: contents; ">
+                <li class="col-xs-12 col-sm-12 col-md-4 " 
+                data-carrier="190008" 
+                data-animation-in=""> 
+                <a href="/en/brand/yunexpress"
+                 data-isour="true">
+                 <span class="e-logo">
+                    <img yqrole="img" 
+                    src="{% static 'img/company_logo/dhl.png' %}" style="margin-top:10px">
+                </span></a></li>
+                <li class="col-xs-12 col-sm-12 col-md-4 " 
+                data-carrier="190002" data-animation-in="">
+                 <a href="/en/brand/flyt" data-isour="true">
+                    <span class="e-logo">
+                        <img yqrole="img" 
+                        src="{% static 'img/company_logo/aramex.png' %}" style="margin-top:4px;height:100px">
+                    </span>
+                    
+                    
+                   
+                </a></li>
+                <li class="col-xs-12 col-sm-12 col-md-4 fadeFromBottom" 
+                data-carrier="190002" data-animation-in="">
+                 <a href="/en/brand/flyt" data-isour="true">
+                    <span class="e-logo">
+                        <img yqrole="img" 
+                        src="{% static 'img/company_logo/dpd.png' %}">
+                    </span>
+                    
+                    
+                   
+                </a></li>
+                <li class="col-xs-12 col-sm-12 col-md-3 fadeFromBottom" 
+                data-carrier="190002" data-animation-in="">
+                 <a href="/en/brand/flyt" data-isour="true">
+                    <span class="e-logo">
+                        <img yqrole="img" 
+                        src="{% static 'img/company_logo/fedex.png' %}">
+                    </span>
+                    
+                    
+                   
+                </a></li>
+                <li class="col-xs-12 col-sm-12 col-md-3 fadeFromBottom" 
+                data-carrier="190002" data-animation-in="">
+                 <a href="/en/brand/flyt" data-isour="true">
+                    <span class="e-logo">
+                        <img yqrole="img" 
+                        src="{% static 'img/company_logo/ups.png' %}" style="height:79px">
+                    </span>
+                    
+                    
+                   
+                </a></li>
+                <li class="col-xs-12 col-sm-12 col-md-3 fadeFromBottom" 
+                data-carrier="190002" data-animation-in="">
+                 <a href="/en/brand/flyt" data-isour="true">
+                    <span class="e-logo">
+                        <img yqrole="img" 
+                        src="{% static 'img/company_logo/skynet.png' %}" style="height:29px;margin-top:30px">
+                    </span>
+                    
+                    
+                   
+                </a></li>
+                <li class="col-xs-12 col-sm-12 col-md-3 fadeFromBottom" 
+                data-carrier="190002" data-animation-in="">
+                 <a href="/en/brand/flyt" data-isour="true">
+                    <span class="e-logo">
+                        <img yqrole="img" 
+                        src="{% static 'img/company_logo/tnt.png' %}" style="height:45px;margin-top:30px">
+                    </span>
+                    
+                    
+                   
+                </a></li>
+             </div>
+          </ul>
+       </div>
+    </section>
+   
+ </div>
+ 
+ {% endblock %}

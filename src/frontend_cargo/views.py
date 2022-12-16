@@ -171,7 +171,7 @@ class TrackingView(View):
     def get(self, request, *args, **kwargs):
         self.args = {
             "page_name":"Tracking",
-             "img_url":"/django-static/img/cargo_img/track.jpg",    
+             "img_url":"/django-static/img/cargo_img/abnner.jpg",    
         }
         return render(request, self.template_name, self.args)
 
@@ -184,12 +184,17 @@ class TrackingDetailsView(View):
 
     def get(self, request, *args, **kwargs):
         track_num = request.GET.get("awb_no")
-        qs = TrackingModel.objects.get(tracking_code=track_num)
-        print(track_num)
+        try:
+            qs = TrackingModel.objects.get(tracking_code=track_num)
+        except: 
+            qs = None
         self.args = {
             "qs":qs,
             "page_name":"Tracking Details"
         }
+        if qs is None:
+            return render(request,"tracking.html",{"message":"Your tracking number doesnot match!!", "page_name":"Tracking Details",  "img_url":"/django-static/img/cargo_img/abnner.jpg"} )
+
         return render(request, self.template_name, self.args)
 
 
