@@ -1,5 +1,5 @@
 {% load static %}
-<footer class="footer-area pt-100 pb-70">
+<footer class="footer-area pb-30" style="padding-top:50px">
     <div class="container">
         <div class="row">
             <div class="col-lg-3 col-md-6">
@@ -41,22 +41,22 @@
 
                     <ul class="import-link">
                         <li>
-                            <a href="#">Sea Freight</a>
+                            <a href="{% url 'front_dashboard:user_services' "landsea-freight" %}">Land and Sea Freight</a>
                         </li>
                         <li>
-                            <a href="#">Air Freight</a>
+                            <a href="{% url 'front_dashboard:user_services' "air-freight" %}">Air Freight</a>
                         </li>
                         <li>
-                            <a href="#">Road Freight</a>
+                            <a href="{% url 'front_dashboard:user_services' "importexport-service" %}">Import/Export Service</a>
                         </li>
                         <li>
-                            <a href="#">Local Delivery</a>
+                            <a href="{% url 'front_dashboard:user_services' "courier-service" %}#">Courier Service</a>
                         </li>
                         <li>
-                            <a href="#">Bus Freight</a>
+                            <a href="{% url 'front_dashboard:user_services' "packingwarehouse-service" %}">Packing/Warehousing Service</a>
                         </li>
                         <li>
-                            <a href="#">Car Freight</a>
+                            <a href="{% url 'front_dashboard:user_services' "urgent-service" %}">Urgent Service</a>
                         </li>
                     </ul>
                 </div>
@@ -68,22 +68,22 @@
 
                     <ul class="import-link">
                         <li>
-                            <a href="about-us.html">About Us</a>
+                            <a href="{% url 'front_dashboard:about_us' %}">About Us</a>
                         </li>
                         <li>
-                            <a href="team.html">Team</a>
+                            <a href="{% url 'front_dashboard:teams' %}">Team</a>
                         </li>
                         <li>
-                            <a href="faq.html">FAQ</a>
+                            <a href="{% url 'front_dashboard:location' %}">Global Location</a>
                         </li>
                         <li>
-                            <a href="blog-column-one.html">Blog</a>
+                            <a href="{% url 'front_dashboard:blogs' %}">Blog</a>
                         </li>
                         <li>
-                            <a href="privacy-policy.html">Privacy Policy</a>
+                            <a href="{% url 'front_dashboard:privacy_policy' %}">Privacy Policy</a>
                         </li>
                         <li>
-                            <a href="terms-conditions.html">Terms And Conditions</a>
+                            <a href="{% url 'front_dashboard:termsandcondition' %}">Terms And Conditions</a>
                         </li>
                     </ul>
                 </div>

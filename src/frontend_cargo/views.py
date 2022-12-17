@@ -4,6 +4,7 @@ from backend_cargo.models import *
 from django.http import HttpResponseRedirect
 from backend_cargo.forms import ContactUsModelForm
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
+from django.views.generic import TemplateView
 
 
 class FrontDashView(View):
@@ -190,7 +191,8 @@ class TrackingDetailsView(View):
             qs = None
         self.args = {
             "qs":qs,
-            "page_name":"Tracking Details"
+            "page_name":"Tracking Details",
+            "img_url":"/django-static/img/cargo_img/abnner.jpg", 
         }
         if qs is None:
             return render(request,"tracking.html",{"message":"Your tracking number doesnot match!!", "page_name":"Tracking Details",  "img_url":"/django-static/img/cargo_img/abnner.jpg"} )
@@ -208,6 +210,30 @@ class RequestQuotesView(View):
 
     def get(self, request, *args, **kwargs):
         self.args = {
-            "page_name":"Request a quote"
+            "page_name":"Request a quote",
+            "img_url":"/django-static/img/cargo_img/quor.jpg", 
         }
         return render(request, self.template_name, self.args)
+
+
+class PrivacyPolicyView(TemplateView):
+    template_name = "privacypolicy.html"
+    def get_context_data(self,*args, **kwargs):
+        context = super(PrivacyPolicyView, self).get_context_data(*args,**kwargs)
+        context['page_name'] = "Privacy Policy"
+        context['img_url'] = "/django-static/img/cargo_img/privacy.jpg"
+
+        return context
+
+class TermsandConditionView(TemplateView):
+    template_name = "termsandcondition.html"
+    def get_context_data(self,*args, **kwargs):
+        context = super(TermsandConditionView, self).get_context_data(*args,**kwargs)
+        context['page_name'] = "Terms and Condition"
+        context['img_url'] = "/django-static/img/cargo_img/terms.jpg"
+
+        return context
+
+
+class ComingSoonView(TemplateView):
+    template_name = "comming_soon.html"

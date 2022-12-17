@@ -6,7 +6,52 @@ Quotes
 {% endblock title %}
 
 {% block css %}
+<style>
 
+    .bg-overlay {
+        position: relative;
+        z-index: 0;
+        height: 130vh;
+        padding-top: 106px;
+    }
+    .bg-overlay::after {
+        position: absolute;
+        content: '';
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        background: var(--primary-bg-color-2);
+        opacity: 0.94;
+        z-index: -2;
+    }
+    #contact-form
+    {
+        padding:54px;
+    }
+    :root {
+      
+        --primary-bg-color-2: #F3F5F7;
+
+    }
+    .page-title-area::before {
+        background-color: transparent !important;
+
+    }
+    .page-title-area .page-title-content h2 {
+        color: white;
+    }
+    .page-title-area .page-title-content ul li a {
+        color: white;
+    }
+    .page-title-area .page-title-content ul .active {
+        color: white;
+    }
+    .text-white {
+        color: black!important;
+    }
+       
+</style>
 
 
 
@@ -14,172 +59,136 @@ Quotes
 
 {% block content %}
 {% include "page_header_ban.html" %}
-<!-- Start Track Area -->
-<section class="track-area ptb-100 jarallax" data-jarallax='{"speed": 0.3}'>
+
+
+<section class="cta-area bg-overlay">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="tab quote-list-tab">
-                    <ul class="tabs">
-                        <li>
-                            <a href="#">
-                                Request A Quote
-                                <i class="flaticon-location"></i>
-                            </a>
-                        </li>
-                       
-                    </ul>
-
-                    <div class="tab_content">
-                       
-
-                        <div class="tabs_item">
-                            <form>
-                                <div class="row">
-                                    <div class="col-12">
-                                        <h3>Personal Data</h3>
-                                    </div>
-
-                                    <div class="col-lg-4 col-sm-6">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Your Name">
-                                        </div>
-                                    </div>
-
-                                    <div class="col-lg-4 col-sm-6">
-                                        <div class="form-group">
-                                            <input type="email" class="form-control" placeholder="Your Email">
-                                        </div>
-                                    </div>
-
-                                    <div class="col-lg-4">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Your Phone">
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-12">
-                                        <h3>Shipment Data</h3>
-                                    </div>
-
-                                    <div class="col-lg-4 col-sm-6">
-                                        <div class="form-group">
-                                            <select>
-                                                <option value="1">Type of flight One</option>
-                                                <option value="2">Type of flight Two</option>
-                                                <option value="0">Type of flight Three</option>
-                                                <option value="3">Type of flight Four</option>
-                                                <option value="4">Type of flight Five</option>
-                                                <option value="5">Type of flight Six</option>
-                                                <option value="6">Type of flight Seven</option>
-                                            </select>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-lg-4 col-sm-6">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="City of Departure">
-                                        </div>
-                                    </div>
-
-                                    <div class="col-lg-4">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Which City">
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-lg-4 col-sm-6">
-                                        <div class="form-group">
-                                            <select>
-                                                <option value="1">Incomers One</option>
-                                                <option value="2">Incomers Two</option>
-                                                <option value="0">Incomers Three</option>
-                                                <option value="3">Incomers Four</option>
-                                                <option value="4">Travel Insurance Five</option>
-                                                <option value="5">Incomers Six</option>
-                                                <option value="6">Incomers Seven</option>
-                                            </select>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-lg-2 col-sm-6">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="width">
-                                        </div>
-                                    </div>
-
-                                    <div class="col-lg-2 col-sm-6">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Height">
-                                        </div>
-                                    </div>
-
-                                    <div class="col-lg-2 col-sm-6">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="weight">
-                                        </div>
-                                    </div>
-
-                                    <div class="col-lg-2">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Length">
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-lg-3 col-sm-6 col-md-3">
-                                        <label class="single-check">
-                                            Express Delivery
-                                            <input type="radio" checked="checked" name="radio">
-                                            <span class="checkmark"></span>
-                                        </label>
-                                    </div>
-
-                                    <div class="col-lg-3 col-sm-6 col-md-3">
-                                        <label class="single-check">
-                                            Ocean Freight
-                                            <input type="radio" name="radio">
-                                            <span class="checkmark"></span>
-                                        </label>
-                                    </div>
-
-                                    <div class="col-lg-3 col-sm-6 col-md-3">
-                                        <label class="single-check">
-                                            Road Freight
-                                            <input type="radio" name="radio">
-                                            <span class="checkmark"></span>
-                                        </label>
-                                    </div>
-
-                                    <div class="col-lg-3 col-sm-6 col-md-3">
-                                        <label class="single-check">
-                                            Air Freight
-                                            <input type="radio" name="radio">
-                                            <span class="checkmark"></span>
-                                        </label>
-                                    </div>
-
-                                    <div class="col-12">
-                                        <button type="submit" class="default-btn">
-                                            Request A Quote
-                                        </button>
-                                    </div>
-                                </div>
-                            </form>
+        <div class="row justify-content-center justify-content-lg-between align-items-center">
+            <div class="col-12 col-lg-5">
+                <h2 class="text-white mt-0">Book your Shipment?</h2>
+                <p class="text-white">We provide a range of options for scheduling cargo space for your shipments, including making reservations in advance, reserving online, and more. </p>
+            </div>
+            <div class="col-12 col-lg-7">
+                <!-- Contact Box -->
+                <div class="contact-box bg-white text-center rounded mt-5 mt-lg-0 shadow-lg">
+                    <!-- Contact Form -->
+                    <div id="contact-form">
+                        <div class="contact-top">
+                            <h4 class="m-0" style="color:#0383ff">Have any Query?</h4>
+                            <h6 style="margin-top:10px">Fill out all the field so that We can contact you as soon as possible.</h6>
                         </div>
+                        <div class="tab_content">
+                       
 
+                            <div class="tabs_item">
+                                <form>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <h4 style="
+                                            margin-top: 30px;
+                                            float: left;
+                                            margin-bottom: 17px;
+                                        ">Personal Data</h4>
+                                        </div>
+    
+                                        <div class="col-lg-4 col-sm-6">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" placeholder="Your Name">
+                                            </div>
+                                        </div>
+    
+                                        <div class="col-lg-4 col-sm-6">
+                                            <div class="form-group">
+                                                <input type="email" class="form-control" placeholder="Your Email">
+                                            </div>
+                                        </div>
+    
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" placeholder="Your Phone">
+                                            </div>
+                                        </div>
+                                    </div>
+    
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <h4 style="
+                                            margin-top: 30px;
+                                            float: left;
+                                            margin-bottom: 17px;
+                                        ">Shipment Data</h4>
+                                        </div>
+    
+                                        <div class="col-12 col-md-4">
+                                            <div class="form-group">
+                                            <span class="" data-name="service">
+                                                <select name="service" class="form-control" aria-required="true" aria-invalid="false"><option value="">Select Freight</option><option value="Air Freight">Air Freight</option><option value="Air Sea Freight">Air Sea Freight</option><option value="Door To Door Delivery">Door To Door Delivery</option><option value="Road Transport">Road Transport</option><option value="Sea Freight">Sea Freight</option><option value="Warehousing">Warehousing</option></select></span>
+                                                    </div>
+                                            </div>
+    
+                                        <div class="col-12 col-md-4">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" placeholder="City of Departure">
+                                            </div>
+                                        </div>
+    
+                                        <div class="col-12 col-md-4">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" placeholder="Which City">
+                                            </div>
+                                        </div>
+                                    </div>
+    
+                                   <div  style="margin-top:20px;" class="row">
+                                        <div class="col-12 col-md-3">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" placeholder="width">
+                                            </div>
+                                        </div>
+    
+                                        <div class="col-12 col-md-3">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" placeholder="Height">
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-sm-3">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" placeholder="weight">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-12 col-sm-3">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" placeholder="Length">
+                                            </div>
+                                        </div>
+                                    </div>
+                                       
+                                    </div>
+                                    </div>
+    
+                                    <div class="row" style="margin-top:20px;">
+                                       
+                                        <div class="col-12" style="margin-top:20px;">
+                                            <button class="form-control" type="submit" style=" color: white; background-color: #000024; ">Request a Quote</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+    
+                        </div>
+                        
+                        
+                       
+                     
+                       
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
-<!-- End Track Area -->
 
 
 {% endblock %}
