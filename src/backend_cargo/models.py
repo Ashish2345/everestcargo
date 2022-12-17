@@ -263,24 +263,18 @@ class ReceiverModel(AuditFields):
 
 class GetQuote(AuditFields):
 
-    freight_type = (
-        ("Express Delivery", "Express Delivery"),
-        ("Ocean Freight", "Ocean Freight"),
-        ("Road Freight", "Road Freight"),
-        ("Air Freight", "Air Freight")
-    ) 
+   
 
     full_name = models.CharField(max_length=100,null=True, blank=True)
     email = models.EmailField(max_length=254,null=True, blank=True)
     phone = models.CharField(max_length=50,null=True, blank=True)
-    flight_type = models.ForeignKey(CourierModel, verbose_name=("Type of Carrier"), on_delete=models.CASCADE)
+    flight_type = models.ForeignKey(CourierModel, verbose_name=("Type of Carrier"), on_delete=models.CASCADE,null=True, blank=True)
     city_departure = models.CharField(max_length=50,null=True, blank=True)
-    city = models.CharField(max_length=50,null=True, blank=True)
+    country = models.CharField(max_length=50,null=True, blank=True)
     width = models.FloatField(null=True, blank=True)
     height = models.FloatField(null=True, blank=True)
     weight = models.FloatField(null=True, blank=True)
     length = models.FloatField(null=True, blank=True)
-    type_freight = models.CharField(max_length=50, choices=freight_type, null=True, blank=True)
 
     class Meta:
         verbose_name = ("GetQuote")

@@ -5,7 +5,7 @@ from django.http import HttpResponseRedirect
 from backend_cargo.forms import ContactUsModelForm
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from django.views.generic import TemplateView
-
+from django.contrib import messages
 
 class FrontDashView(View):
     def dispatch(self, request, *args, **kwargs):
@@ -82,6 +82,8 @@ class ContactUsView(View):
         form = ContactUsModelForm(data={**contact_details})
         if form.is_valid():
             form.save()
+            messages.success(request, 'Message successfully send!!')
+
         return HttpResponseRedirect(request.META.get("HTTP_REFERER"))
 
 
@@ -210,11 +212,33 @@ class RequestQuotesView(View):
 
     def get(self, request, *args, **kwargs):
         self.args = {
+            "courier": CourierModel.objects.all(),
             "page_name":"Request a quote",
             "img_url":"/django-static/img/cargo_img/quor.jpg", 
         }
+
+        
         return render(request, self.template_name, self.args)
 
+    def post(self, request, *args, **kwargs):
+        name = request.POST.get("name")
+
+        email = request.POST.get("email")
+        phone = request.POST.get("phone")
+        freight = int(request.POST.get("freight"))
+        country = request.POST.get("country")
+        city = request.POST.get("city")
+        width = request.POST.get("width")
+        Height = request.POST.get("Height")
+        weight = request.POST.get("weight")
+        length = request.POST.get("length")
+        freights = CourierModel.objects.get(id=freight)
+        m = GetQuote(full_name=name, email=email, phone=phone,country=country,city_departure=city,width=width, height=Height, weight=weight, length=length  )
+        m.flight_type = freights
+        m.save()
+        messages.success(request, 'Quote Successfully Created!!')
+
+        return HttpResponseRedirect(request.META.get("HTTP_REFERER"))
 
 class PrivacyPolicyView(TemplateView):
     template_name = "privacypolicy.html"

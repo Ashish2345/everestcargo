@@ -61,6 +61,7 @@ Quotes
 {% include "page_header_ban.html" %}
 
 
+
 <section class="cta-area bg-overlay">
     <div class="container">
         <div class="row justify-content-center justify-content-lg-between align-items-center">
@@ -81,7 +82,8 @@ Quotes
                        
 
                             <div class="tabs_item">
-                                <form>
+                                <form method="post">
+                                    {% csrf_token %}
                                     <div class="row">
                                         <div class="col-12">
                                             <h4 style="
@@ -93,19 +95,19 @@ Quotes
     
                                         <div class="col-lg-4 col-sm-6">
                                             <div class="form-group">
-                                                <input type="text" class="form-control" placeholder="Your Name">
+                                                <input type="text" class="form-control" name="name" placeholder="Your Name">
                                             </div>
                                         </div>
     
                                         <div class="col-lg-4 col-sm-6">
                                             <div class="form-group">
-                                                <input type="email" class="form-control" placeholder="Your Email">
+                                                <input type="email" class="form-control" name="email"  placeholder="Your Email">
                                             </div>
                                         </div>
     
                                         <div class="col-lg-4">
                                             <div class="form-group">
-                                                <input type="text" class="form-control" placeholder="Your Phone">
+                                                <input type="text" class="form-control" name="phone"  placeholder="Your Phone">
                                             </div>
                                         </div>
                                     </div>
@@ -121,20 +123,28 @@ Quotes
     
                                         <div class="col-12 col-md-4">
                                             <div class="form-group">
-                                            <span class="" data-name="service">
-                                                <select name="service" class="form-control" aria-required="true" aria-invalid="false"><option value="">Select Freight</option><option value="Air Freight">Air Freight</option><option value="Air Sea Freight">Air Sea Freight</option><option value="Door To Door Delivery">Door To Door Delivery</option><option value="Road Transport">Road Transport</option><option value="Sea Freight">Sea Freight</option><option value="Warehousing">Warehousing</option></select></span>
+                                           
+                                                <select class="form-control" name="freight">
+                                                    <option value="">Select Freight</option>
+                                                    {% for courier in courier %}
+                                                    
+                                                    
+                                                    <option value="{{courier.id}}">{{courier}}</option>
+                                                    
+                                                    {% endfor %}
+                                                </select>
                                                     </div>
                                             </div>
     
                                         <div class="col-12 col-md-4">
                                             <div class="form-group">
-                                                <input type="text" class="form-control" placeholder="City of Departure">
+                                                <input type="text" class="form-control" placeholder="City of Departure" name="city">
                                             </div>
                                         </div>
     
                                         <div class="col-12 col-md-4">
                                             <div class="form-group">
-                                                <input type="text" class="form-control" placeholder="Which City">
+                                                <input type="text" class="form-control" placeholder="Which Country" name="country">
                                             </div>
                                         </div>
                                     </div>
@@ -142,24 +152,24 @@ Quotes
                                    <div  style="margin-top:20px;" class="row">
                                         <div class="col-12 col-md-3">
                                             <div class="form-group">
-                                                <input type="text" class="form-control" placeholder="width">
+                                                <input type="text" class="form-control" placeholder="width" name="width">
                                             </div>
                                         </div>
     
                                         <div class="col-12 col-md-3">
                                             <div class="form-group">
-                                                <input type="text" class="form-control" placeholder="Height">
+                                                <input type="text" class="form-control" placeholder="Height" name="Height">
                                             </div>
                                         </div>
                                         <div class="col-12 col-sm-3">
                                             <div class="form-group">
-                                                <input type="text" class="form-control" placeholder="weight">
+                                                <input type="text" class="form-control" placeholder="weight" name="weight">
                                             </div>
                                         </div>
 
                                         <div class="col-12 col-sm-3">
                                             <div class="form-group">
-                                                <input type="text" class="form-control" placeholder="Length">
+                                                <input type="text" class="form-control" placeholder="Length" name="length">
                                             </div>
                                         </div>
                                     </div>
