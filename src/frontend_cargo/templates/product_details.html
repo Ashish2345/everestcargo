@@ -1,0 +1,334 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+{{page_name}}
+
+{% endblock title %}
+
+{% block css %}
+
+
+
+
+{% endblock css %}
+
+{% block content %}
+
+    {% include "page_header_ban.html" %}
+
+<!-- Start Product Details Area -->
+<section class="product-details-area ptb-100">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 col-md-12">
+                <div class="product-details-image">
+                    <img src="{{product_Det.image.url}}" alt="Image">
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-12">
+                <div class="product-details-desc">
+                    <h3>{{product_Det.title}}</h3>
+
+                    <div class="product-review">
+                        <div class="rating">
+                            <i class='bx bxs-star'></i>
+                            <i class='bx bxs-star'></i>
+                            <i class='bx bxs-star'></i>
+                            <i class='bx bxs-star'></i>
+                            <i class='bx bxs-star'></i>
+                        </div>
+                        <a href="#" class="rating-count">(3 Customer reviews)</a>
+                    </div>
+
+                    <div class="price">
+                        <span class="new-price"> <del>Rs {{product_Det.actual_rate}}</del> Rs {{product_Det.rate}}</span>
+                    </div>
+
+
+                    <div class="product-add-to-cart">
+                        <h3>Quantities:</h3>
+                        <div class="input-counter">
+                            <span class="minus-btn">
+                                <i class="bx bx-minus"></i>
+                            </span>
+
+                            <input type="text" min="1" value="1" id="get_quantity">
+
+                            <span class="plus-btn">
+                                <i class="bx bx-plus"></i>
+                            </span>
+                        </div>
+                    </div>
+
+                    <a class="default-btn"  data-bs-toggle="modal" data-bs-target="#send_enquiry" href="#send_enquiry">
+                        <span>Send Inquiry</span>
+                    </a>
+
+                    <ul class="social-wrap">
+                        <li>
+                            <span>Share:</span>
+                        </li>
+                        <li>
+                            <a href="#" target="_blank">
+                                <i class="bx bxl-twitter"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" target="_blank">
+                                <i class="bx bxl-instagram"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" target="_blank">
+                                <i class="bx bxl-facebook"></i>
+                            </a>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+
+            <div class="col-lg-12 col-md-12">
+                <div class="tab products-details-tab">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12">
+                            <ul class="tabs">
+                                <li>
+                                    <a href="#">
+                                        Description
+                                    </a>
+                                </li>
+                                {% comment %} <li>
+                                    <a href="#">
+                                        Additional Information
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        Reviews(2)
+                                    </a>
+                                </li> {% endcomment %}
+                            </ul>
+                        </div>
+
+                        <div class="col-lg-12 col-md-12">
+                            <div class="tab_content">
+                                <div class="tabs_item">
+                                    <div class="products-details-tab-content">
+                                        {{product_Det.description|safe}}
+                                    </div>
+                                </div>
+
+                                <div class="tabs_item">
+                                    <div class="products-details-tab-content">
+                                        <ul class="additional-information">
+                                            <li><span>Brand:</span> ThemeForest</li>
+                                            <li><span>Color:</span> Brown</li>
+                                            <li><span>Size:</span> Large, Medium</li>
+                                            <li><span>Weight:</span> 27 kg</li>
+                                            <li><span>Dimensions:</span> 16 x 22 x 123 cm</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="tabs_item">
+                                    <div class="products-details-tab-content">
+                                        <div class="product-review-form">
+                                            <h3>Customer Reviews</h3>
+
+                                            <div class="review-title">
+                                                <div class="rating">
+                                                    <i class="bx bxs-star"></i>
+                                                    <i class="bx bxs-star"></i>
+                                                    <i class="bx bxs-star"></i>
+                                                    <i class="bx bxs-star"></i>
+                                                    <i class="bx bxs-star"></i>
+                                                </div>
+                                                <p>Based on 2 reviews</p>
+                                            </div>
+
+                                            <div class="review-comments">
+                                                <div class="review-item">
+                                                    <div class="rating">
+                                                        <i class="bx bxs-star"></i>
+                                                        <i class="bx bxs-star"></i>
+                                                        <i class="bx bxs-star"></i>
+                                                        <i class="bx bxs-star"></i>
+                                                        <i class="bx bxs-star"></i>
+                                                    </div>
+
+                                                    <h3>Good</h3>
+                                                    <span><strong>Admin</strong> on <strong>July 21, 2020</strong></span>
+                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
+
+                                                    <a href="#" class="review-report-link">Reply</a>
+                                                </div>
+
+                                                <div class="review-item">
+                                                    <div class="rating">
+                                                        <i class="bx bxs-star"></i>
+                                                        <i class="bx bxs-star"></i>
+                                                        <i class="bx bxs-star"></i>
+                                                        <i class="bx bxs-star"></i>
+                                                        <i class="bx bxs-star"></i>
+                                                    </div>
+                                                    
+                                                    <h3>Good</h3>
+                                                    <span><strong>Admin</strong> on <strong>July 21, 2020</strong></span>
+                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
+
+                                                    <a href="#" class="review-report-link">Reply</a>
+                                                </div>
+                                            </div>
+
+                                            <div class="review-form">
+                                                <h3>Write A Review</h3>
+
+                                                <form>
+                                                    <div class="row">
+                                                        <div class="col-lg-6 col-md-6">
+                                                            <div class="form-group">
+                                                                <label>Name</label>
+                                                                <input type="text" id="name" name="name" class="form-control">
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-lg-6 col-md-6">
+                                                            <div class="form-group">
+                                                                <label>Email</label>
+                                                                <input type="email" id="email" name="email" class="form-control">
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-lg-12 col-md-12">
+                                                            <div class="form-group">
+                                                                <label>Review title</label>
+                                                                <input type="text" id="review-title" name="review-title" class="form-control">
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-lg-12 col-md-12">
+                                                            <div class="form-group">
+                                                                <label>Body of review (1500)</label>
+                                                                <textarea name="review-body" id="review-body" cols="30" rows="8" class="form-control"></textarea>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-lg-12 col-md-12">
+                                                            <button type="submit" class="btn default-btn two">Submit Review</button>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Product Details Area -->
+
+<!-- Start Related Products Area -->
+
+{% if other_products %}
+<div class="product-area pb-70">
+    <div class="container">
+        <div class="section-title">
+            <h2>Related Products</h2>
+        </div>
+
+        <div class="related-product owl-theme owl-carousel">
+
+            {% for other in other_products %}
+            <div class="single-product">
+                <div class="product-img">
+                    <img src="{{other.image.url}}" alt="Image">
+                    
+                    
+                </div>
+
+                <a href="product-details.html">
+                    <h3>{{other.title}}</h3>
+                </a>
+
+                <span>Rs {{other.rate}}</span>
+
+                <a href="{% url 'front_dashboard:products-deails' other.id %}" class="default-btn">
+                    <span>See Detailst</span>
+                </a>
+            </div>
+        
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endif %}
+<!-- End Related Products Area -->
+
+
+<div class="modal fade" id="send_enquiry" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Send Inquiry</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form method="post">
+                {% csrf_token %}
+
+                <div class="form-group">
+                    {% for fields in form %}
+                        <div class="form-group" style="margin-top:10px">
+                            <lable>{{fields.label}}</lable>
+                            {{fields}}
+
+                        </div>
+                    
+                    
+                    
+                    {% endfor %}
+                </div>
+                <input type="hidden" name="quantity" id="get_value">
+         
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="bsubmitutton" class="btn btn-primary">Save changes</button>
+        </div>
+    </form>
+      </div>
+    </div>
+  </div>
+
+
+    {% endblock content %}
+
+{% block js %}
+
+
+<script type="text/javascript">
+    $(document).ready(function() {
+
+        {% if success %}
+      toastr.options.timeOut = 1500; // 1.5s
+      toastr.info('Order send for inquiry!');
+      {% endif %}
+
+      $('#send_enquiry').click(function() {
+        let quanty = $("#get_quantity").val()
+        $("#get_value").val(quanty)
+
+     });
+    });
+  </script>
+{% endblock js %}

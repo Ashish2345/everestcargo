@@ -151,6 +151,64 @@ class TeamsView(View):
         }
         return render(request, self.template_name, self.args)
 
+
+class ProductsView(View):
+    def dispatch(self, request, *args, **kwargs):
+        self.template_name = "products.html"
+        self.args = {}
+        return super().dispatch(request, *args, **kwargs)
+
+    def get(self, request, *args, **kwargs):
+        self.args = {
+            "page_name":"Products",
+            "img_url":"/django-static/img/eccom.jpg",
+            "products": Ecommerce.objects.all()
+        }
+        return render(request, self.template_name, self.args)
+
+from .forms import CheckoutInquiryForm
+
+class ProductsDetailsView(View):
+    def dispatch(self, request, *args, **kwargs):
+        self.template_name = "product_details.html"
+        self.args = {}
+        return super().dispatch(request, *args, **kwargs)
+
+    def get(self, request, *args, **kwargs):
+        id = self.kwargs.get("id")
+        product_Det = Ecommerce.objects.get(id=id)
+        other_products = Ecommerce.objects.exclude(id=id)
+        self.args = {
+            "page_name":"Product Details",
+            "img_url":"/django-static/img/eccom.jpg",
+            "product_Det":product_Det,
+            "other_products":other_products,
+            "form": CheckoutInquiryForm()
+            
+        }
+        return render(request, self.template_name, self.args)
+
+    def post(self, request, *args, **kwargs):
+        id = self.kwargs.get("id")
+        product_Det = Ecommerce.objects.get(id=id)
+        data_dict = request.POST.dict()
+        form = CheckoutInquiryForm(data = {**data_dict})
+        if form.is_valid():
+            quantity = request.POST.get("quantity", 0)
+            m = form.save(commit=False)
+            m.product = product_Det
+            m.quantity = int(quantity)
+            m.save()
+
+            self.args = {"success": "Order send for inquiry!!",
+                         "page_name":"Product Details",
+                        "img_url":"/django-static/img/eccom.jpg",
+                        "product_Det":product_Det,
+                        "other_products":Ecommerce.objects.exclude(id=id),
+                        "form": CheckoutInquiryForm()}
+            return render(request, self.template_name, self.args)
+
+
 class GlobalLocationView(View):
     def dispatch(self, request, *args, **kwargs):
         self.template_name = "global_location.html"

@@ -18,7 +18,7 @@
                             <a href="tel:{{systemoption.phone_number}}">{{systemoption.phone_number}}</a>
                         </li>
                                 <li>
-                                    <i class='bx bxl-whatsapp'>          </i>
+                                    <i class='bx bxl-whatsapp' style="color: #57ff96;">          </i>
                                     <a href="whatsapp://send?abid=+9779841587039">+977 9841587039</a>
                                 </li>
                         
@@ -88,14 +88,14 @@
     
                                 <ul class="dropdown-menu">
                                     <li class="nav-item">
-                                        <a href="{% url 'front_dashboard:user_services' "air-freight" %}" class="nav-link">Air Freight</a>
+                                        <a href="{% url 'front_dashboard:user_services' "air-freight" %}" class="nav-link">Air Cargo</a>
                                     </li>
                                     
                                     <li class="nav-item">
-                                        <a href="{% url 'front_dashboard:user_services' "landsea-freight" %}" class="nav-link">Land and Sea Freight</a>
+                                        <a href="{% url 'front_dashboard:user_services' "landsea-freight" %}" class="nav-link">Land and Sea Cargo</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="{% url 'front_dashboard:user_services' "importexport-service" %}" class="nav-link">Import/Export Service</a>
+                                        <a href="{% url 'front_dashboard:user_services' "importexport-service" %}" class="nav-link">Export Service</a>
                                     </li>
                                     <li class="nav-item">
                                         <a href="{% url 'front_dashboard:user_services' "courier-service" %}" class="nav-link">Courier Service</a>
@@ -136,9 +136,11 @@
                             </li>
                             <li class="nav-item">
                                 <a href="{% url 'front_dashboard:about_us' %}" class="nav-link">
-                                    About Us
+                                    Company
                                 </a>
                             </li>
+
+                            
                             <li class="nav-item">
                                 <a href="" class="nav-link">
                                     Other Pages
@@ -151,7 +153,7 @@
                                     </li>
                                    
                                     <li class="nav-item">
-                                        <a href="{% url 'front_dashboard:comingsoon' %}" class="nav-link">Shop</a>
+                                        <a href="{% url 'front_dashboard:products' %}" class="nav-link">Shop</a>
                                     </li>
                                     <li class="nav-item">
                                         <a href="{% url 'front_dashboard:teams' %}" class="nav-link">Team</a>

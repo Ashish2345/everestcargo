@@ -36,6 +36,8 @@ INSTALLED_APPS = [
     #3rd Party Apps
     'crispy_forms', 
     'django_extensions',
+    'ckeditor',
+    'ckeditor_uploader',
 
     #all_auth
     'allauth',
@@ -133,3 +135,11 @@ STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'assets/')
 
 MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), "media/")
 MEDIA_URL = '/media/'
+
+CKEDITOR_UPLOAD_PATH = 'ckeditoruploads/'
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'Custom',
+    }
+}

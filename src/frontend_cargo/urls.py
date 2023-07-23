@@ -1,7 +1,7 @@
 from django.urls import path
 
 from .views import (FrontDashView, ServicesView, AboutUsView, ContactUsView, BlogsView, 
-                    BlogsDetailsView,ComingSoonView,PrivacyPolicyView,TermsandConditionView, TrackingDetailsView, RequestQuotesView, TeamsView, GlobalLocationView, TrackingView)
+                    BlogsDetailsView,ComingSoonView,ProductsDetailsView,ProductsView,PrivacyPolicyView,TermsandConditionView, TrackingDetailsView, RequestQuotesView, TeamsView, GlobalLocationView, TrackingView)
 
 app_name = "front_dashboard"
 
@@ -15,6 +15,8 @@ urlpatterns = [
     path("blog_details/<int:id>/", BlogsDetailsView.as_view(), name="blogs_details"), 
 
     path("teams/", TeamsView.as_view(), name="teams"), 
+    path("products/", ProductsView.as_view(), name="products"), 
+    path("products/details/<int:id>/", ProductsDetailsView.as_view(), name="products-deails"), 
 
     path("global_location/", GlobalLocationView.as_view(), name="location"), 
 

@@ -8,6 +8,8 @@ from django.urls import reverse
 
 from django.contrib.auth.models import User
 
+from ckeditor.fields import RichTextField
+
 
 class AuditFields(models.Model):
     created_date = models.DateTimeField(auto_now_add=True, null=True)
@@ -347,3 +349,30 @@ class TrackingModel(AuditFields):
             self.tracking_code = code
         return super().save(*args, **kwargs)
 
+
+class Ecommerce(models.Model):
+    rate = models.PositiveIntegerField(default=0)
+    actual_rate = models.PositiveIntegerField(default=0)
+    
+    title = models.CharField(max_length=250,null=True,blank=True)
+    description = RichTextField(null=True, blank=True)
+    image = models.FileField(upload_to="products_pic", 
+        validators=[FileExtensionValidator(allowed_extensions=settings.VALID_IMAGE_FORMAT)], null=True)
+
+    brand = models.CharField(max_length=250,null=True,blank=True)
+    color = models.CharField(max_length=250,null=True,blank=True)
+    size = models.CharField(max_length=250,null=True,blank=True)
+    weight = models.CharField(max_length=250,null=True,blank=True)
+
+
+class CheckoutInquiry(AuditFields):
+
+    product = models.ForeignKey(Ecommerce, verbose_name=("Products"), on_delete=models.CASCADE)
+    quantity= models.PositiveIntegerField(default=0)
+    first_name = models.CharField(max_length=50, null=True, blank=True)
+    last_name = models.CharField(max_length=50, null=True, blank=True)
+    company_name = models.CharField(max_length=50, null=True, blank=True)
+    email = models.CharField(max_length=50, null=True, blank=True)
+    phone = models.CharField(max_length=50, null=True, blank=True)
+    address = models.CharField(max_length=250, null=True, blank=True)
+    notes = models.TextField(null=True, blank=True)

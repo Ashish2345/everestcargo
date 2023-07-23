@@ -10,6 +10,8 @@ admin.site.register(SiteSetting, SiteSettingAdmin)
 admin.site.register(SystemSettings)
 
 admin.site.register(Profile)
+admin.site.register(Ecommerce)
+admin.site.register(CheckoutInquiry)
 
 class OverviewBannerModelAdmin(admin.ModelAdmin):
     list_display = ["text1"]
