@@ -41,7 +41,7 @@ Blogs
                                 <a href="#">{{all_blog.title}}</a>
                             </h3>
 
-                            <p>{{all_blog.description|slice:250}}</p>
+                            <p>{{all_blog.description|safe|slice:250}}</p>
 
                             <a href="{% url 'front_dashboard:blogs_details' all_blog.id %}" class="default-btn">
                                 <span>Read More</span>

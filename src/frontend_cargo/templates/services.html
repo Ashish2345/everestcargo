@@ -34,6 +34,7 @@ Services
                 </div>
 
                 <div class="content-two">
+                    {% if service_details.second_service_image %}
                     <div class="row align-items-center">
                         <div class="col-lg-6 col-md-6">
                             <div class="mb-30">
@@ -41,21 +42,26 @@ Services
                                 <p>{{service_details.second_description}}</p>
                             </div>
                         </div>
-
+                        
                         <div class="col-lg-6 col-md-6">
                             <div class="services-details-img mb-30">
+
                                 <img src="{{service_details.second_service_image.url}}" alt="Image" style="width: 360px;">
                             </div>
                         </div>
+                        
                     </div>
+                    {% endif %}
 
                     <div class="content-two mt-0">
                         <div class="row align-items-center">
+                            {% if service_details.third_service_image %}
                             <div class="col-lg-6 col-md-6">
                                 <div class="services-details-img mb-30">
                                     <img src="{{service_details.third_service_image.url}}" alt="Image" style=" width: 391px; ">
                                 </div>
                             </div>
+                            
 
                             <div class="col-lg-6 col-md-6">
                                 <div class="mb-30">
@@ -63,6 +69,7 @@ Services
                                     <p>{{service_details.third_description}}</p>
                                 </div>
                             </div>
+                            {% endif %}
                         </div>
                     </div>
                 </div>

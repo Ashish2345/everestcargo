@@ -126,15 +126,15 @@ class ContactUsModel(AuditFields):
 
 class BlogModel(AuditFields):
     title = models.CharField(max_length=50, null=False, blank=False)
-    description = models.TextField(null=False, blank=False)
+    description = RichTextField(null=True, blank=True)
     blog_image = models.FileField(upload_to="blog_image", 
-        validators=[FileExtensionValidator(allowed_extensions=settings.VALID_IMAGE_FORMAT)], null=True)
+        validators=[FileExtensionValidator(allowed_extensions=settings.VALID_IMAGE_FORMAT)], null=True, blank=True)
     created_by = models.ForeignKey(User, verbose_name=("Created By"), on_delete=models.CASCADE)
     sub_image1 = models.FileField(upload_to="blog_image", 
-        validators=[FileExtensionValidator(allowed_extensions=settings.VALID_IMAGE_FORMAT)], null=True)
+        validators=[FileExtensionValidator(allowed_extensions=settings.VALID_IMAGE_FORMAT)], null=True, blank=True)
 
     sub_image2 = models.FileField(upload_to="blog_image", 
-        validators=[FileExtensionValidator(allowed_extensions=settings.VALID_IMAGE_FORMAT)], null=True)
+        validators=[FileExtensionValidator(allowed_extensions=settings.VALID_IMAGE_FORMAT)], null=True, blank=True)
     highlighted_text = models.CharField(max_length=255, null=True, blank=True)
     def __str__(self)-> str:
         return self.title
@@ -198,20 +198,20 @@ class AboutUsModel(AuditFields):
 
 
 class ServiceModel(AuditFields):
-    tag_name = models.CharField(max_length=50, null=False, blank=False)
-    service_name =  models.CharField(max_length=150, null=False, blank=False)
+    tag_name = models.CharField(max_length=50, null=True, blank=True)
+    service_name =  models.CharField(max_length=150, null=True, blank=True)
     main_service_image =  models.FileField(upload_to="service", 
-        validators=[FileExtensionValidator(allowed_extensions=settings.VALID_IMAGE_FORMAT)], null=True)
-    first_text =  models.CharField(max_length=150, null=False, blank=False)
-    first_description = models.TextField(null=False, blank=False)
-    second_text =  models.CharField(max_length=150, null=False, blank=False)
-    second_description = models.TextField(null=False, blank=False)
+        validators=[FileExtensionValidator(allowed_extensions=settings.VALID_IMAGE_FORMAT)], null=True, blank=True)
+    first_text =  models.CharField(max_length=150, null=True, blank=True)
+    first_description = models.TextField(null=True, blank=True)
+    second_text =  models.CharField(max_length=150, null=True, blank=True)
+    second_description = models.TextField(null=True, blank=True)
     second_service_image =  models.FileField(upload_to="service", 
-        validators=[FileExtensionValidator(allowed_extensions=settings.VALID_IMAGE_FORMAT)], null=True)
-    third_text =  models.CharField(max_length=150, null=False, blank=False)
-    third_description = models.TextField(null=False, blank=False)
+        validators=[FileExtensionValidator(allowed_extensions=settings.VALID_IMAGE_FORMAT)], null=True, blank=True)
+    third_text =  models.CharField(max_length=150, null=True, blank=True)
+    third_description = models.TextField(null=True, blank=True)
     third_service_image =  models.FileField(upload_to="service", 
-            validators=[FileExtensionValidator(allowed_extensions=settings.VALID_IMAGE_FORMAT)], null=True)
+            validators=[FileExtensionValidator(allowed_extensions=settings.VALID_IMAGE_FORMAT)], null=True, blank=True)
     def __str__(self):
         return self.tag_name
 
@@ -226,7 +226,7 @@ class CourierModel(models.Model):
         return self.courier_type
 
 class CargoModelPackage(models.Model):
-    cargo_type = models.CharField(max_length=50, null=True, blank=False)
+    cargo_type = models.CharField(max_length=50, null=True, blank=True)
     test = models.BooleanField((""))
 
     def __str__(self):
@@ -240,20 +240,20 @@ class DeliveryMode(models.Model):
         return self.mode
 
 class ShipperModel(AuditFields):
-    name = models.CharField(max_length=50, null=True, blank=False)
-    hotel = models.CharField(max_length=150, null=True, blank=False)
+    name = models.CharField(max_length=50, null=True, blank=True)
+    hotel = models.CharField(max_length=150, null=True, blank=True)
     room_no = models.IntegerField()
-    passpord_number = models.CharField(max_length=50, null=True, blank=False)
-    nationality = models.CharField(max_length=50, null=True, blank=False)
+    passpord_number = models.CharField(max_length=50, null=True, blank=True)
+    nationality = models.CharField(max_length=50, null=True, blank=True)
 
     def __str__(self):
         return self.name
 
 class ReceiverModel(AuditFields):
-    name = models.CharField(max_length=50, null=True, blank=False)
-    address = models.CharField(max_length=150, null=True, blank=False)
+    name = models.CharField(max_length=50, null=True, blank=True)
+    address = models.CharField(max_length=150, null=True, blank=True)
     postal_code = models.IntegerField()
-    country = models.CharField(max_length=50, null=True, blank=False)
+    country = models.CharField(max_length=50, null=True, blank=True)
     airport = models.CharField(max_length=50, null=True, blank=True)
     email = models.EmailField(max_length=150, null=True, blank=True)
     phone = models.CharField(max_length=150, null=True, blank=True)

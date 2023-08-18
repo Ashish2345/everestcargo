@@ -59,7 +59,7 @@ Services
                             
                             <h3>{{blog_details.title}}</h3>
 
-                            <p>{{blog_details.description}}</p>
+                            <p>{{blog_details.description|safe}}</p>
 
                         </div>
 
@@ -75,7 +75,8 @@ Services
                             <div class="col-lg-6 col-md-6">
                                 <div class="single-blog-post-img">
                                     <a href="blog-details.html">
-                                        <img src="{{blog_details.sub_image1.url}}" alt="Image">
+                                        {% if blog_details.sub_image1 %}
+                                        <img src="{{blog_details.sub_image1.url}}" alt="Image">{% endif %}
                                     </a>
                                 </div>
                             </div>
@@ -83,7 +84,8 @@ Services
                             <div class="col-lg-6 col-md-6">
                                 <div class="single-blog-post-img">
                                     <a href="blog-details.html">
-                                        <img src="{{blog_details.sub_image2.url}}" alt="Image">
+                                        {% if blog_details.sub_image2 %}
+                                        <img src="{{blog_details.sub_image2.url}}" alt="Image">{% endif %}
                                     </a>
                                 </div>
                             </div>
