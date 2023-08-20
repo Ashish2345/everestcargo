@@ -15,9 +15,20 @@
 {% block content %}
 
     {% include "page_header_ban.html" %}
+<!-- End Choose Us Area -->
+<section class="testimonials-area pt-100 pb-10">
+    <div class="container-fluid p-0">
+        <div class="section-title">
+            <span>Shops</span>
+            <h2>Satisfied customers are our best Ads</h2>
+            <p>We provide incredible services to our customers on this platform. We have a large connection with the manufacturer in Nepal. Whatever Nepali products you want we could support you in buying processing, picking up, packaging, warehousing, and exporting it unless any hesitation. We always focus on the best deals.</p>
+        </div>
 
+        
+    </div>
+</section>
 <!-- Start Product Area -->
-<div class="product-area ptb-100">
+<div class="product-area ptb-10">
     <div class="container">
         
         
@@ -29,25 +40,13 @@
                     <div class="product-img">
                         <img src="{{products.image.url}}" alt="Image">
                         
-                        <ul>
-                            <li>
-                                <a href="#product-view-one" data-bs-toggle="modal">
-                                    <i class="bx bx-show-alt"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i class="bx bx-heart"></i>
-                                </a>
-                            </li>
-                        </ul>
+                        
                     </div>
 
                     <a href="product-details.html">
                         <h3>{{products.title}}</h3>
                     </a>
 
-                    <span>Rs {{products.rate}}</span>
 
                     <a href="{% url 'front_dashboard:products-deails' products.id %}" class="default-btn">
                         <span>Show Details</span>
@@ -87,4 +86,4 @@
 
 
 
-{% endblock js %}
+{% endblock js %}
