@@ -65,13 +65,16 @@
             {% for products in products %}
             <div class="col-lg-4 col-sm-6">
                 <div class="single-product">
+                    <a href="{% url 'front_dashboard:products-deails' products.id %}">
                     <div class="product-img">
+                        
                         <img src="{{products.image.url}}" alt="Image">
                         
                         
                     </div>
-
-                    <a href="product-details.html">
+                    
+                </a>
+                    <a href="{% url 'front_dashboard:products-deails' products.id %}">
                         <h3>{{products.title}}</h3>
                     </a>
 
