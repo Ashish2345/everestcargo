@@ -15,8 +15,8 @@ vevn/
 venv
 env/
 .idea
-media/
-media   
+# media/
+# media   
 static_cdn/
 static_cdn
 celerybeat-schedule.bak
