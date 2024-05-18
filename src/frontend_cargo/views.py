@@ -17,7 +17,7 @@ class FrontDashView(View):
         about_us = AboutUsModel.objects.first()
         faq_model = FAQModel.objects.all()
         testimonials = TestimonialsModel.objects.all()
-        blogs = BlogModel.objects.all()[::6]
+        blogs = BlogModel.objects.order_by("-created_date")[:3]
         self.args = {
             "about_us":about_us,
             "faq_model":faq_model,
