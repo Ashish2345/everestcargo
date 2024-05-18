@@ -63,6 +63,22 @@ class AboutUsView(View):
         }
         return render(request, self.template_name, self.args)
 
+import urllib, json
+def validate_captcha(request):
+    recaptcha_response = request.POST.get('g-recaptcha-response')
+    url = 'https://www.google.com/recaptcha/api/siteverify'
+    values = { 
+            'secret': settings.GOOGLE_RECAPTCHA_SECRET_KEY,
+            'response': recaptcha_response
+            }
+    
+    data = urllib.parse.urlencode(values).encode()
+    req =  urllib.request.Request(url, data=data)
+    response = urllib.request.urlopen(req)
+    result = json.loads(response.read().decode())
+    
+    return result
+
 
 class ContactUsView(View):
     def dispatch(self, request, *args, **kwargs):
@@ -78,6 +94,11 @@ class ContactUsView(View):
         return render(request, self.template_name, self.args)
 
     def post(self, request):
+        result = validate_captcha(request)
+        if result["success"] != True:
+            messages.error(request, 'Invalid Captcha!!')
+            return HttpResponseRedirect(request.META.get("HTTP_REFERER"))
+
         contact_details = request.POST.dict()
         form = ContactUsModelForm(data={**contact_details})
         if form.is_valid():
