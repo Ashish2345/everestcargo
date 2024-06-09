@@ -186,33 +186,42 @@
 <script>
     {% comment %} todoCheck.addEventListener("click", (e) => { {% endcomment %}
     $('.dropify').dropify();
-    let total_arr = []
-    const add_btn = document.getElementById("check_totoal")
-    add_btn.addEventListener("click", (e) => { 
-        const total = document.querySelectorAll("#total")
-        total.forEach((totoalCheck) => {
-            let b = parseInt(totoalCheck.value)
-            console.log(b)
-            if (isNaN(b) == true)
-            {
-                b = 0
-            }
-            total_arr.push(b)
-        })
-        const sum = total_arr.reduce((partialSum, a) => partialSum + a, 0);
-        const sum2 = sum.toString();
-        const total_val = document.getElementById("total_val");
-        if (isNaN(sum) == true)
-        {
-            document.getElementById("total_val").innerHTML = 44
-        }
-        else
-        {
-            document.getElementById("total_val").innerHTML = sum2
-        }
-        
-        
-    })
+   
+
+
+    function calculateTotal($item) {
+        var weight = parseFloat($item.find('#weight').val()) || 0;
+        var quantity = parseFloat($item.find('#quantity').val()) || 0;
+        var rate = parseFloat($item.find('#rate').val()) || 0;
+        var total = weight * quantity * rate;
+        $item.find('input[name$="[package_total]"]').val(total.toFixed(2));
+    }
+
+    // Function to update the grand total
+    function updateGrandTotal() {
+        var grandTotal = 0;
+        $('input[name$="[package_total]"]').each(function () {
+            grandTotal += parseFloat($(this).val()) || 0;
+        });
+        document.getElementById("total_val").innerHTML = grandTotal
+    }
+
+    // Attach event listeners to dynamically added elements
+    $(document).on('change', '#weight, #quantity, #rate', function () {
+        console.log(222)
+        var item = $(this).closest('[data-repeater-item]');
+        console.log(item)
+        calculateTotal(item);
+        updateGrandTotal();
+    });
+
+    // Update grand total on delete
+    $(document).on('click', '[data-repeater-delete]', function () {
+        setTimeout(updateGrandTotal, 100); // Delay to ensure the item is removed before calculation
+    });
+
+    // Initial calculation and update
+    $('input[name="package_weight"], input[name="package_quantity"], input[name="package_rate"]').trigger('input');
 
 </script>
 

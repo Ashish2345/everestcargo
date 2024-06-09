@@ -125,7 +125,7 @@ class ContactUsModel(AuditFields):
 
 
 class BlogModel(AuditFields):
-    title = models.CharField(max_length=50, null=False, blank=False)
+    title = models.CharField(max_length=250, null=False, blank=False)
     description = RichTextField(null=True, blank=True)
     blog_image = models.FileField(upload_to="blog_image", 
         validators=[FileExtensionValidator(allowed_extensions=settings.VALID_IMAGE_FORMAT)], null=True, blank=True)
