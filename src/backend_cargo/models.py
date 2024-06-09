@@ -124,6 +124,10 @@ class ContactUsModel(AuditFields):
         verbose_name_plural = ("Contact Us")
 
 
+class BlogManager(models.Manager):
+    def get_queryset(self) -> models.QuerySet:
+        return super().get_queryset().filter(to_show=True)
+
 class BlogModel(AuditFields):
     title = models.CharField(max_length=250, null=False, blank=False)
     description = RichTextField(null=True, blank=True)
@@ -137,6 +141,8 @@ class BlogModel(AuditFields):
         validators=[FileExtensionValidator(allowed_extensions=settings.VALID_IMAGE_FORMAT)], null=True, blank=True)
     highlighted_text = models.CharField(max_length=255, null=True, blank=True)
     to_show = models.BooleanField(default=False)
+
+    objects = BlogManager()
     def __str__(self)-> str:
         return self.title
 
