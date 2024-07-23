@@ -10,7 +10,6 @@ urlpatterns = [
     #Frontend Portion
     path("", include("frontend_cargo.urls",namespace="front_dashboard")),
 
-    path('accounts/', include('allauth.urls')),
     path("accounts/", include("backend_cargo.urls",namespace="backend_dashboard")),
 
 ]
