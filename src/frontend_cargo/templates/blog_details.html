@@ -61,13 +61,14 @@ Services
 
                             <p>{{blog_details.description|safe}}</p>
 
-                        </div>
+	                        </div>		
+			{% if blog_details.highlighted_text %}
 
                         <blockquote>
                             <p>“{{blog_details.highlighted_text}}”</p>
                             <i class="bx bxs-quote-alt-left"></i>
                         </blockquote>
-
+	{% endif %}
                         <div class="news-content-2">
                         </div>
 
