@@ -140,7 +140,7 @@ class BlogModel(AuditFields):
     sub_image2 = models.FileField(upload_to="blog_image", 
         validators=[FileExtensionValidator(allowed_extensions=settings.VALID_IMAGE_FORMAT)], null=True, blank=True)
     highlighted_text = models.CharField(max_length=255, null=True, blank=True)
-    # to_show = models.BooleanField(default=False)
+    to_show = models.BooleanField(default=False)
 
     # objects = BlogManager()
     def __str__(self)-> str:
